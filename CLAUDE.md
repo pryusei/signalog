@@ -28,6 +28,7 @@ Signalog は「気になる企業をフォローするだけで、テックブ�
 **Phase 1 — MVP**
 
 8チケット構成で進行中:
+
 - SGL-001: プロジェクト基盤
 - SGL-002: DBスキーマ + Drizzle セットアップ
 - SGL-003: NextAuth.js 認証
@@ -62,14 +63,14 @@ db/                    ← Drizzle スキーマ・マイグレーション・シ
 
 実装前に必ず以下を読むこと:
 
-| 作業内容 | 参照すべきもの |
-|---|---|
-| あらゆる実装 | `.claude/skills/signalog-conventions/SKILL.md` |
-| Next.js コード | `.claude/skills/nextjs-app-router/SKILL.md` |
-| DB スキーマ・クエリ | `.claude/skills/drizzle-neon/SKILL.md` |
-| RSSクローラー | `.claude/skills/rss-crawler/SKILL.md` |
-| コミット・PR 作成 | `.claude/skills/commit-and-pr/SKILL.md` |
-| チケット実装 | `docs/<NNN>-<name>/spec.md` (該当チケットの仕様書) |
+| 作業内容            | 参照すべきもの                                     |
+| ------------------- | -------------------------------------------------- |
+| あらゆる実装        | `.claude/skills/signalog-conventions/SKILL.md`     |
+| Next.js コード      | `.claude/skills/nextjs-app-router/SKILL.md`        |
+| DB スキーマ・クエリ | `.claude/skills/drizzle-neon/SKILL.md`             |
+| RSSクローラー       | `.claude/skills/rss-crawler/SKILL.md`              |
+| コミット・PR 作成   | `.claude/skills/commit-and-pr/SKILL.md`            |
+| チケット実装        | `docs/<NNN>-<name>/spec.md` (該当チケットの仕様書) |
 
 ## 作業フロー
 

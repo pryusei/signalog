@@ -4,7 +4,7 @@
 > 本ドキュメントは既存の `docs/product-vision.md` を **置き換えるものではなく**、
 > Phase 1 のスコープと設計判断を確定させるための **追補ドキュメント** として扱う。
 
-*作成日: 2026-04-25*
+_作成日: 2026-04-25_
 
 ---
 
@@ -30,11 +30,13 @@ Phase 1 を実装に進める粒度で見ると以下の問題があった。
 **判断**: PostgreSQL RLS を Phase 1 では使わず、Drizzle ORM のクエリビルダで `where` 句を組み立てるアプリ層認可とする。
 
 **理由**:
+
 - NextAuth.js は Neon に対してアプリケーションロール1つで接続するため、`auth.uid()` 相当が動かない
 - Neon の `pg_session_jwt` を使う方式は設定が重く、Phase 1 のスコープ外
 - Drizzle は型安全な `where` 句を提供するため、認可漏れはコードレビューで検出可能
 
 **実装ルール**:
+
 - すべての API Route の冒頭で `getServerSession(authOptions)` を呼び、`session.user.id` を取得
 - ユーザー固有データ(follows, likes 等)を扱うクエリには必ず `where(eq(table.userId, session.user.id))` を含める
 - 公開データ(companies, articles)は認可不要だが、フォロー一覧等のフィルタ済みデータは認可必須
@@ -46,6 +48,7 @@ Phase 1 を実装に進める粒度で見ると以下の問題があった。
 **判断**: RSS の `<guid>` は信頼できないフィードがあるため使わず、URL を正規化したものをキーとする。
 
 **正規化ルール**:
+
 - スキームを `https` に統一(`http` → `https`)
 - 末尾スラッシュを除去
 - フラグメント(`#...`)を除去
@@ -53,6 +56,7 @@ Phase 1 を実装に進める粒度で見ると以下の問題があった。
 - それ以外のクエリパラメータは保持(記事IDの場合があるため)
 
 **スキーマ**:
+
 ```sql
 CREATE UNIQUE INDEX articles_company_url_idx
   ON articles (company_id, normalized_url);
@@ -66,11 +70,13 @@ CREATE UNIQUE INDEX articles_company_url_idx
 **判断**: 「1時間ごと」は GitHub Actions Free 枠を超過するリスクがあるため、Phase 1 では3時間間隔とする。
 
 **根拠**:
+
 - 100社 × RSS取得 × 並列度10 = 1回あたり 約2-3分(タイムアウト含む)
 - 3時間間隔 × 30日 = 240回/月
 - 3分 × 240回 = 720分/月(Free 2,000分/月の36%)
 
 **並列実行の方針**:
+
 - `Promise.allSettled` で全企業のRSS取得を並列実行(並列度上限10、`p-limit` 使用)
 - 1社あたり10秒のタイムアウト
 - 失敗した企業は次回に再試行(エラーログのみ、リトライキューは不要)
@@ -82,11 +88,13 @@ CREATE UNIQUE INDEX articles_company_url_idx
 **判断**: Phase 1 では OGP画像URLをDBに保存し、`<img>` タグで直接参照する。Next.js の `<Image>` コンポーネントは使わない(または `unoptimized` で使う)。
 
 **理由**:
+
 - Vercel Image Optimization の無料枠は1,000枚/月。100社 × 10記事/週 = 1,000枚/週で即超過
 - OGP画像は元サイトのCDNにあり、可用性も元サイトに依存して問題ない
 - 画像最適化のコストを払うほどの体験差は Phase 1 では発生しない
 
 **実装ルール**:
+
 - `articles.ogp_image_url` カラムにURL文字列で保存
 - 表示側は `<img src={article.ogpImageUrl} loading="lazy" />` または `<Image unoptimized />`
 - 画像取得失敗時のフォールバック画像を1枚用意(`/public/fallback-ogp.png`)
@@ -98,6 +106,7 @@ CREATE UNIQUE INDEX articles_company_url_idx
 **判断**: OFFSET ベースは記事追加で重複/欠落が出るため、`(published_at, id)` の複合カーソルを採用。
 
 **API設計**:
+
 ```
 GET /api/feed?cursor=<base64>&limit=20
 
@@ -109,10 +118,12 @@ Response:
 ```
 
 **カーソル形式**:
+
 - `{ publishedAt: ISO8601, id: string }` を JSON 化して base64 エンコード
 - 同じ `publishedAt` の記事を確実にページングするため `id` を tiebreaker に含める
 
 **クエリ**:
+
 ```ts
 .where(
   or(
@@ -148,11 +159,13 @@ Response:
 **Phase 2 で必要になる前提**: 「Top 3 記事の AI 要約」を実装するには本文が必要だが、「記事本文は保持しない」方針と矛盾する。
 
 **Phase 2 の方針(Phase 1 では実装しない)**:
+
 - 要約生成時にだけ元記事URLを fetch する(週3回なので低負荷・合法的)
 - 取得した本文は要約生成のメモリ上でのみ使用、DB には保存しない
 - 要約結果(数百文字)のみ `articles.ai_summary` カラムに保存
 
 **Phase 1 での準備**:
+
 - `articles` テーブルに以下のカラムを Phase 1 から含めておく(NULL 許可):
   - `ai_summary TEXT NULL`
   - `ai_summary_generated_at TIMESTAMPTZ NULL`
@@ -161,6 +174,7 @@ Response:
 ### 3.3 RSS 記事の表示範囲
 
 **Phase 1 のスコープ**:
+
 - ✅ タイトル
 - ✅ 元記事へのリンク
 - ✅ 公開日
@@ -177,6 +191,7 @@ RSS の `<description>` をそのまま表示すると再配信扱いになる�
 **現状の問題**: `pnpm create next-app@latest --yes` のデフォルトはバージョンによって変わるため、明示的にフラグを指定する。
 
 **正しいコマンド**:
+
 ```bash
 pnpm create next-app@latest signalog \
   --typescript \
@@ -195,11 +210,13 @@ pnpm create next-app@latest signalog \
 **判断**: `companies.slug`(例: `mercari`)を一意キーとする。`domain` も持つが一意制約は付けない。
 
 **理由**:
+
 - M&A や子会社化で `domain` が変わることがある(例: Indeed → Recruit 傘下)
 - URL に使えるのは `slug`(`/companies/mercari`)
 - 検索や表示の主軸は `name` だが、人間の編集ミスで重複しやすい
 
 **スキーマ**:
+
 ```sql
 CREATE TABLE companies (
   id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -219,16 +236,16 @@ CREATE TABLE companies (
 
 既存の SGL-001〜005(5チケット)を、依存関係と作業量に応じて 8チケットに分割。
 
-| ID | タイトル | 依存 | 想定工数 | 主な成果物 |
-|---|---|---|---|---|
-| SGL-001 | プロジェクト基盤 | - | 1-2日 | Next.js 16 + CI + Vercel + Neon 接続 |
-| SGL-002 | DBスキーマ + Drizzle セットアップ | 001 | 1日 | `db/schema.ts`、マイグレーション、型定義 |
-| SGL-003 | NextAuth.js 認証 | 002 | 1-2日 | Google / GitHub OAuth、セッション管理 |
-| SGL-004 | 企業データモデル + シード投入 | 002 | 1日 | 50-100社の初期データ、`db/seed/companies.ts` |
-| SGL-005 | 企業一覧・検索・フォロー機能 | 003, 004 | 2-3日 | `/discover`、`FollowButton`、`/api/follows` |
-| SGL-006 | RSSクローラー(GitHub Actions) | 004 | 2-3日 | `crawler/`、`.github/workflows/crawl.yml` |
-| SGL-007 | フィード表示 | 005, 006 | 2-3日 | `/feed`、フィルタ、カーソルページネーション |
-| SGL-008 | マイページ(フォロー中一覧) | 005 | 1日 | `/mypage`、フォロー解除UI |
+| ID      | タイトル                          | 依存     | 想定工数 | 主な成果物                                   |
+| ------- | --------------------------------- | -------- | -------- | -------------------------------------------- |
+| SGL-001 | プロジェクト基盤                  | -        | 1-2日    | Next.js 16 + CI + Vercel + Neon 接続         |
+| SGL-002 | DBスキーマ + Drizzle セットアップ | 001      | 1日      | `db/schema.ts`、マイグレーション、型定義     |
+| SGL-003 | NextAuth.js 認証                  | 002      | 1-2日    | Google / GitHub OAuth、セッション管理        |
+| SGL-004 | 企業データモデル + シード投入     | 002      | 1日      | 50-100社の初期データ、`db/seed/companies.ts` |
+| SGL-005 | 企業一覧・検索・フォロー機能      | 003, 004 | 2-3日    | `/discover`、`FollowButton`、`/api/follows`  |
+| SGL-006 | RSSクローラー(GitHub Actions)     | 004      | 2-3日    | `crawler/`、`.github/workflows/crawl.yml`    |
+| SGL-007 | フィード表示                      | 005, 006 | 2-3日    | `/feed`、フィルタ、カーソルページネーション  |
+| SGL-008 | マイページ(フォロー中一覧)        | 005      | 1日      | `/mypage`、フォロー解除UI                    |
 
 **合計**: 11-16日(1人での実装想定)
 
@@ -247,11 +264,11 @@ SGL-001 → SGL-002 ┬→ SGL-003 ┐
 
 ### 4.2 既存仕様からの主な変更
 
-| 既存 | 変更後 | 理由 |
-|---|---|---|
-| SGL-002: 認証 | SGL-002: DBスキーマ / SGL-003: 認証 に分離 | スキーマを最初に固めないと後続が並行できない |
-| SGL-003: 企業データ・フォロー | SGL-004: 企業データ / SGL-005: フォロー機能 に分離 | データ整備とUI実装は性質が違う |
-| SGL-005: フィード表示 | SGL-007: フィード / SGL-008: マイページ に分離 | マイページは認証境界が異なる |
+| 既存                          | 変更後                                             | 理由                                         |
+| ----------------------------- | -------------------------------------------------- | -------------------------------------------- |
+| SGL-002: 認証                 | SGL-002: DBスキーマ / SGL-003: 認証 に分離         | スキーマを最初に固めないと後続が並行できない |
+| SGL-003: 企業データ・フォロー | SGL-004: 企業データ / SGL-005: フォロー機能 に分離 | データ整備とUI実装は性質が違う               |
+| SGL-005: フィード表示         | SGL-007: フィード / SGL-008: マイページ に分離     | マイページは認証境界が異なる                 |
 
 ---
 
@@ -287,16 +304,16 @@ SGL-001 → SGL-002 ┬→ SGL-003 ┐
 
 本ドキュメントの内容は以下のように既存ドキュメントに反映する。
 
-| 反映先 | 反映内容 |
-|---|---|
-| `docs/product-vision.md` | Phase 1 スコープのチェックリスト更新(8チケット構成への変更を反映) |
-| `docs/001-infrastructure/spec.md` | プロジェクト初期化コマンドの修正、CSP のコメント追記 |
-| `docs/002-auth/spec.md`(新設) | アプリ層認可方針の明記 |
-| `docs/003-company/spec.md` | 企業の一意キー(slug)を明記 |
-| `docs/004-crawler/spec.md` | URL正規化ルール、クロール間隔3時間、並列度10 を明記 |
-| `docs/005-feed/spec.md` | カーソルページネーション、表示範囲(タイトル+リンク+公開日+OGP) |
-| `claude/PROJECT.md` | 「重要な設計判断」から RLS の記述を削除、アプリ層認可に修正 |
-| `claude/tickets/` | SGL-001〜008 の8チケットに再構成 |
+| 反映先                            | 反映内容                                                          |
+| --------------------------------- | ----------------------------------------------------------------- |
+| `docs/product-vision.md`          | Phase 1 スコープのチェックリスト更新(8チケット構成への変更を反映) |
+| `docs/001-infrastructure/spec.md` | プロジェクト初期化コマンドの修正、CSP のコメント追記              |
+| `docs/002-auth/spec.md`(新設)     | アプリ層認可方針の明記                                            |
+| `docs/003-company/spec.md`        | 企業の一意キー(slug)を明記                                        |
+| `docs/004-crawler/spec.md`        | URL正規化ルール、クロール間隔3時間、並列度10 を明記               |
+| `docs/005-feed/spec.md`           | カーソルページネーション、表示範囲(タイトル+リンク+公開日+OGP)    |
+| `claude/PROJECT.md`               | 「重要な設計判断」から RLS の記述を削除、アプリ層認可に修正       |
+| `claude/tickets/`                 | SGL-001〜008 の8チケットに再構成                                  |
 
 ---
 

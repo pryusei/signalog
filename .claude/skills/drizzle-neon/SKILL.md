@@ -8,12 +8,14 @@ description: Drizzle ORM と Neon (Serverless PostgreSQL) の使い方。Signalo
 ## セットアップ
 
 ### パッケージ
+
 ```bash
 pnpm add drizzle-orm @neondatabase/serverless
 pnpm add -D drizzle-kit
 ```
 
 ### drizzle.config.ts
+
 ```typescript
 import { defineConfig } from 'drizzle-kit'
 
@@ -28,6 +30,7 @@ export default defineConfig({
 ```
 
 ### DB クライアント (Server 用)
+
 ```typescript
 // src/lib/db/server.ts
 import { drizzle } from 'drizzle-orm/neon-http'
@@ -44,15 +47,7 @@ export const db = drizzle(sql, { schema })
 
 ```typescript
 // db/schema.ts
-import {
-  pgTable,
-  uuid,
-  text,
-  timestamp,
-  primaryKey,
-  uniqueIndex,
-  index,
-} from 'drizzle-orm/pg-core'
+import { pgTable, uuid, text, timestamp, primaryKey, uniqueIndex, index } from 'drizzle-orm/pg-core'
 import { relations } from 'drizzle-orm'
 
 export const users = pgTable('users', {
@@ -94,10 +89,7 @@ export const articles = pgTable(
     aiSummaryGeneratedAt: timestamp('ai_summary_generated_at', { withTimezone: true }),
   },
   (table) => ({
-    companyUrlIdx: uniqueIndex('articles_company_url_idx').on(
-      table.companyId,
-      table.normalizedUrl,
-    ),
+    companyUrlIdx: uniqueIndex('articles_company_url_idx').on(table.companyId, table.normalizedUrl),
     pubIdIdx: index('articles_pub_id_idx').on(table.publishedAt, table.id),
   }),
 )
@@ -145,11 +137,7 @@ import { articles, companies } from '@/lib/db/schema'
 import { desc, eq } from 'drizzle-orm'
 
 // シンプルな SELECT
-const result = await db
-  .select()
-  .from(articles)
-  .orderBy(desc(articles.publishedAt))
-  .limit(20)
+const result = await db.select().from(articles).orderBy(desc(articles.publishedAt)).limit(20)
 
 // JOIN
 const result = await db
@@ -180,10 +168,7 @@ const result = await db.query.articles.findMany({
 
 ```typescript
 // ✅ 正しい: 自分のフォローのみ取得
-const myFollows = await db
-  .select()
-  .from(follows)
-  .where(eq(follows.userId, session.user.id))
+const myFollows = await db.select().from(follows).where(eq(follows.userId, session.user.id))
 
 // ❌ 間違い: 全ユーザーのフォローを取得してしまう
 const allFollows = await db.select().from(follows)
@@ -210,10 +195,7 @@ async function getArticles(cursor: Cursor | null, limit = 20) {
     query.where(
       or(
         lt(articles.publishedAt, new Date(cursor.publishedAt)),
-        and(
-          eq(articles.publishedAt, new Date(cursor.publishedAt)),
-          lt(articles.id, cursor.id),
-        ),
+        and(eq(articles.publishedAt, new Date(cursor.publishedAt)), lt(articles.id, cursor.id)),
       ),
     )
   }
@@ -272,6 +254,6 @@ pnpm drizzle-kit push
 
 ## 禁止事項
 
-- 生 SQL (`sql\`SELECT * FROM articles WHERE id = ${id}\``) をユーザー入力と組み合わせない (SQL Injection)
-- `db.execute(sql\`...\`)` を使う場合は必ず `sql.placeholder()` でバインディング
+- 生 SQL (`sql\`SELECT \* FROM articles WHERE id = ${id}\``) をユーザー入力と組み合わせない (SQL Injection)
+- `db.execute(sql\`...\`)`を使う場合は必ず`sql.placeholder()` でバインディング
 - 認可なしのクエリでユーザー固有データを取得しない

@@ -19,6 +19,7 @@ pnpm build                 # ビルド成功確認
 ## コミットメッセージ
 
 形式:
+
 ```
 <type>(<scope>): <description>
 ```
@@ -28,6 +29,7 @@ pnpm build                 # ビルド成功確認
 - **description**: 50文字以内、日本語可、命令形
 
 例:
+
 ```bash
 git commit -m "feat(auth): Google OAuth ログイン画面を実装"
 git commit -m "fix(crawler): RSS パース時の XXE 対策を追加"
@@ -42,6 +44,7 @@ feature/SGL-<番号>-<short-description>
 ```
 
 例:
+
 - `feature/SGL-001-infrastructure`
 - `feature/SGL-003-auth`
 
@@ -70,6 +73,7 @@ gh pr create \
 ```
 
 例:
+
 - `[SGL-001] プロジェクト基盤セットアップ`
 - `[SGL-003] NextAuth.js 認証 (Google/GitHub)`
 

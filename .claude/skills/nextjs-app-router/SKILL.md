@@ -8,11 +8,13 @@ description: Next.js 16 App Router のベストプラクティス。Signalog で
 ## Next.js 16 の主な変更点 (15 → 16)
 
 ### Turbopack がデフォルト
+
 - `next dev` / `next build` ともに Turbopack が標準
 - webpack の設定は不要。Turbopack 非互換のプラグインは使わない
 - FS キャッシュで2回目以降の起動が高速
 
 ### async params (重要)
+
 - ページコンポーネントの `params` / `searchParams` が Promise に変更
 - 必ず `await` してから使う
 
@@ -34,6 +36,7 @@ export default function Page({ params }: { params: { slug: string } }) {
 ```
 
 ### React Compiler (stable)
+
 - `next.config.ts` に `reactCompiler: true` で有効化
 - 手動の `useMemo` / `useCallback` は不要になる
 
@@ -42,12 +45,14 @@ export default function Page({ params }: { params: { slug: string } }) {
 ### 判断基準
 
 **Server Component (デフォルト) を使う場合:**
+
 - データフェッチが必要
 - DB / API に直接アクセスする
 - シークレットを使う処理
 - 状態を持たない表示のみのコンポーネント
 
 **Client Component (`'use client'`) を使う場合:**
+
 - `useState` / `useEffect` が必要
 - ブラウザAPI(localStorage, window等)を使う
 - イベントハンドラ(onClick, onChange等)が必要
@@ -99,7 +104,7 @@ export async function POST(req: NextRequest) {
   if (!session?.user) {
     return Response.json(
       { error: { code: 'UNAUTHORIZED', message: 'ログインが必要です' } },
-      { status: 401 }
+      { status: 401 },
     )
   }
   const { companyId } = await req.json()
@@ -114,13 +119,13 @@ Next.js 16 ではデフォルトでキャッシュが無効。明示的に設定
 
 **Signalog での方針:**
 
-| ページ/API | revalidate | 理由 |
-|---|---|---|
-| `/feed` (フィード) | 300 (5分) | 新着記事の反映と負荷のバランス |
-| `/discover` (企業一覧) | 3600 (1時間) | 企業データはあまり変わらない |
-| `/api/feed` | キャッシュなし | 動的、ユーザー固有 |
-| `/api/follows` | キャッシュなし | ユーザー固有 |
-| `/mypage` | キャッシュなし | ユーザー固有 |
+| ページ/API             | revalidate     | 理由                           |
+| ---------------------- | -------------- | ------------------------------ |
+| `/feed` (フィード)     | 300 (5分)      | 新着記事の反映と負荷のバランス |
+| `/discover` (企業一覧) | 3600 (1時間)   | 企業データはあまり変わらない   |
+| `/api/feed`            | キャッシュなし | 動的、ユーザー固有             |
+| `/api/follows`         | キャッシュなし | ユーザー固有                   |
+| `/mypage`              | キャッシュなし | ユーザー固有                   |
 
 ```typescript
 // 静的キャッシュの設定例
