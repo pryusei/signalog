@@ -24,21 +24,21 @@ interface Article {
 type Article = {
   id: any
   title: string
-  type: ArticleType  // Enum
+  type: ArticleType // Enum
 }
 ```
 
 ## ファイル命名
 
-| 対象 | 規則 | 例 |
-|------|------|-----|
-| コンポーネント | PascalCase | `ArticleCard.tsx` |
-| フック | camelCase(use接頭辞) | `useFollows.ts` |
-| ユーティリティ | camelCase | `formatDate.ts` |
-| 型定義 | camelCase | `types.ts` |
-| API Route | `route.ts`(Next.js規約) | `app/api/feed/route.ts` |
-| ページ | `page.tsx`(Next.js規約) | `app/(main)/feed/page.tsx` |
-| テスト | `.test.ts` または `.test.tsx` | `ArticleCard.test.tsx` |
+| 対象           | 規則                          | 例                         |
+| -------------- | ----------------------------- | -------------------------- |
+| コンポーネント | PascalCase                    | `ArticleCard.tsx`          |
+| フック         | camelCase(use接頭辞)          | `useFollows.ts`            |
+| ユーティリティ | camelCase                     | `formatDate.ts`            |
+| 型定義         | camelCase                     | `types.ts`                 |
+| API Route      | `route.ts`(Next.js規約)       | `app/api/feed/route.ts`    |
+| ページ         | `page.tsx`(Next.js規約)       | `app/(main)/feed/page.tsx` |
+| テスト         | `.test.ts` または `.test.tsx` | `ArticleCard.test.tsx`     |
 
 ## コンポーネント設計
 
@@ -99,7 +99,7 @@ return Response.json({ data: articles })
 // Error
 return Response.json(
   { error: { code: 'UNAUTHORIZED', message: 'ログインが必要です' } },
-  { status: 401 }
+  { status: 401 },
 )
 ```
 
@@ -113,6 +113,7 @@ scope: auth, feed, company, crawler, infra, db, follow, mypage
 ```
 
 例:
+
 - `feat(auth): Google OAuth ログイン画面を実装`
 - `fix(crawler): RSS パース時の XXE 対策を追加`
 - `docs(infra): CI/CD ワークフローの仕様を記載`

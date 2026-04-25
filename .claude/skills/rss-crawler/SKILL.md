@@ -28,7 +28,17 @@ crawler/index.ts (エントリ)
 `crawler/normalize.ts` に実装。
 
 ```typescript
-const TRACKING_PARAMS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'fbclid', 'gclid', 'ref', 'source']
+const TRACKING_PARAMS = [
+  'utm_source',
+  'utm_medium',
+  'utm_campaign',
+  'utm_term',
+  'utm_content',
+  'fbclid',
+  'gclid',
+  'ref',
+  'source',
+]
 
 export function normalizeUrl(input: string): string {
   const url = new URL(input)
@@ -65,10 +75,10 @@ const limit = pLimit(10) // 並列度10
 
 const results = await Promise.allSettled(
   feeds.map((feed) =>
-    limit(() =>
-      withTimeout(processFeed(feed), 10_000) // 10秒タイムアウト
-    )
-  )
+    limit(
+      () => withTimeout(processFeed(feed), 10_000), // 10秒タイムアウト
+    ),
+  ),
 )
 
 // 集計
@@ -178,12 +188,14 @@ async function processFeed(feed: CompanyFeed) {
       }
     }
     // 成功時に last_success_at を更新
-    await db.update(companyFeeds)
+    await db
+      .update(companyFeeds)
       .set({ lastFetchedAt: new Date(), lastSuccessAt: new Date(), consecutiveFailures: 0 })
       .where(eq(companyFeeds.id, feed.id))
   } catch (e) {
     // フィード全体の失敗は記録
-    await db.update(companyFeeds)
+    await db
+      .update(companyFeeds)
       .set({
         lastFetchedAt: new Date(),
         consecutiveFailures: sql`${companyFeeds.consecutiveFailures} + 1`,
