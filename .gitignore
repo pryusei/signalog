@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Issue 一括作成用 (使用後は不要)
+/create-issues.sh
+/issues/
