@@ -1,8 +1,9 @@
-import { loadEnvConfig } from '@next/env'
+import { config } from 'dotenv'
 import { defineConfig } from 'drizzle-kit'
 
-// Next.js と同じ順序で .env.local などを読み込む
-loadEnvConfig(process.cwd())
+// drizzle-kit は Next.js の env ローダーを持たないため dotenv で明示ロード
+config({ path: '.env.local' })
+config({ path: '.env' })
 
 export default defineConfig({
   schema: './db/schema.ts',
