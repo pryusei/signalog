@@ -2,6 +2,8 @@
 
 import { useState } from 'react'
 
+import { isSafeUrl } from '@/lib/safeUrl'
+
 interface Props {
   name: string
   logoUrl: string | null
@@ -12,7 +14,7 @@ interface Props {
 export function CompanyLogo({ name, logoUrl, imgClassName, tileClassName }: Props) {
   const [error, setError] = useState(false)
 
-  if (logoUrl && !error) {
+  if (isSafeUrl(logoUrl) && !error) {
     return (
       // eslint-disable-next-line @next/next/no-img-element
       <img src={logoUrl} alt={name} className={imgClassName} onError={() => setError(true)} />

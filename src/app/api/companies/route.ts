@@ -5,7 +5,7 @@ import { db } from '@/lib/db/server'
 import { companies } from '../../../../db/schema'
 
 export async function GET(request: NextRequest) {
-  const q = request.nextUrl.searchParams.get('q')?.trim() ?? ''
+  const q = (request.nextUrl.searchParams.get('q')?.trim() ?? '').slice(0, 100)
 
   const rows = await db
     .select()
