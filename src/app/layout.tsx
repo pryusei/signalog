@@ -1,13 +1,13 @@
 import type { Metadata } from 'next'
-import { Geist } from 'next/font/google'
-
-import { Header } from '@/components/Header'
+import { Inter, Zen_Maru_Gothic } from 'next/font/google'
 
 import './globals.css'
 
-const geist = Geist({
-  variable: '--font-geist-sans',
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+const zenMaruGothic = Zen_Maru_Gothic({
+  weight: ['400', '500', '700', '900'],
   subsets: ['latin'],
+  variable: '--font-zen',
 })
 
 export const metadata: Metadata = {
@@ -17,11 +17,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ja" className={`${geist.variable} h-full antialiased`}>
-      <body className="flex min-h-full flex-col bg-gray-50">
-        <Header />
-        <div className="flex-1">{children}</div>
-      </body>
+    <html lang="ja" className={`${inter.variable} ${zenMaruGothic.variable} h-full antialiased`}>
+      <body className="bg-sg-bg text-sg-ink h-full">{children}</body>
     </html>
   )
 }

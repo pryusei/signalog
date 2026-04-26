@@ -1,50 +1,84 @@
 import { signIn } from '@/lib/auth'
 
+const TILES = [
+  { label: 'CA', cls: 'bg-sg-accent-soft text-sg-accent-deep' },
+  { label: 'ZO', cls: 'bg-sg-warm-soft text-sg-warm' },
+  { label: 'SM', cls: 'bg-gray-100 text-gray-500' },
+  { label: 'DM', cls: 'bg-sg-accent-soft text-sg-accent-deep' },
+  { label: '+24', cls: 'bg-sg-warm-soft text-sg-warm' },
+]
+
 export default function LoginPage() {
   return (
-    <div className="w-full max-w-sm rounded-2xl bg-white p-8 shadow-lg ring-1 ring-gray-200">
-      <div className="mb-8 text-center">
-        <p className="mb-1 text-3xl font-black tracking-tight text-gray-900">Signalog</p>
-        <p className="text-sm text-gray-500">
-          企業のテックブログ・プレスリリースをまとめてフォロー
+    <div className="flex min-h-screen">
+      {/* Left pane — value prop (hidden on mobile) */}
+      <div className="from-sg-accent-soft to-sg-warm-soft hidden flex-col justify-center bg-gradient-to-br p-12 lg:flex lg:flex-[1.1]">
+        <div className="text-sg-accent-deep mb-5 inline-block self-start rounded-full bg-white/60 px-3 py-1 text-xs font-semibold">
+          BETA
+        </div>
+        <h1 className="text-sg-ink mb-4 text-4xl leading-tight font-black">
+          気になる企業の
+          <br />
+          「これから」を、まとめて。
+        </h1>
+        <p className="text-sg-ink-soft mb-8 max-w-sm text-sm">
+          テックブログ・プレスリリースを1つのフィードで追いかけられます。
         </p>
+        <div className="flex gap-3">
+          {TILES.map((t) => (
+            <div
+              key={t.label}
+              className={`flex h-10 w-10 items-center justify-center rounded-xl text-sm font-bold ${t.cls}`}
+            >
+              {t.label}
+            </div>
+          ))}
+        </div>
       </div>
 
-      <div className="flex flex-col gap-3">
-        <form
-          action={async () => {
-            'use server'
-            await signIn('google', { redirectTo: '/feed' })
-          }}
-        >
-          <button
-            type="submit"
-            className="flex w-full items-center justify-center gap-3 rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm font-semibold text-gray-700 shadow-sm transition-colors hover:bg-gray-50 active:bg-gray-100"
-          >
-            <GoogleIcon />
-            Google でログイン
-          </button>
-        </form>
+      {/* Right pane — auth */}
+      <div className="bg-sg-bg flex flex-1 flex-col items-center justify-center p-8">
+        <div className="w-full max-w-[340px]">
+          <p className="text-sg-ink mb-1 text-2xl font-black">ログイン / 新規登録</p>
+          <p className="text-sg-ink-soft mb-7 text-sm">SNS アカウントですぐに開始</p>
 
-        <form
-          action={async () => {
-            'use server'
-            await signIn('github', { redirectTo: '/feed' })
-          }}
-        >
-          <button
-            type="submit"
-            className="flex w-full items-center justify-center gap-3 rounded-xl bg-gray-900 px-4 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-gray-800 active:bg-gray-700"
-          >
-            <GitHubIcon />
-            GitHub でログイン
-          </button>
-        </form>
+          <div className="flex flex-col gap-3">
+            <form
+              action={async () => {
+                'use server'
+                await signIn('google', { redirectTo: '/feed' })
+              }}
+            >
+              <button
+                type="submit"
+                className="border-sg-line bg-sg-surface text-sg-ink flex w-full items-center justify-center gap-3 rounded-full border py-3 text-sm font-semibold shadow-sm transition-colors hover:bg-gray-50"
+              >
+                <GoogleIcon />
+                Google でログイン
+              </button>
+            </form>
+
+            <form
+              action={async () => {
+                'use server'
+                await signIn('github', { redirectTo: '/feed' })
+              }}
+            >
+              <button
+                type="submit"
+                className="bg-sg-ink flex w-full items-center justify-center gap-3 rounded-full py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:opacity-90"
+              >
+                <GitHubIcon />
+                GitHub でログイン
+              </button>
+            </form>
+          </div>
+
+          <p className="text-sg-ink-faint mt-6 text-center text-xs">
+            続行することで利用規約に同意したとみなされます
+          </p>
+        </div>
       </div>
-
-      <p className="mt-6 text-center text-xs text-gray-400">
-        ログインすることで利用規約とプライバシーポリシーに同意したものとみなします
-      </p>
     </div>
   )
 }

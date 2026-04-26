@@ -100,23 +100,48 @@ export default async function FeedPage({ searchParams }: PageProps) {
   }
 
   return (
-    <main className="mx-auto max-w-2xl px-4 py-8">
-      <div className="mb-6 flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-gray-900">フィード</h1>
+    <main className="mx-auto max-w-2xl px-6 py-8">
+      <h1 className="text-sg-ink mb-1 text-2xl font-black">フィード</h1>
+      {userId && (
+        <p className="text-sg-ink-soft mb-5 text-sm">
+          {following ? 'フォロー中の企業の最新情報' : 'すべての企業の最新情報'}
+        </p>
+      )}
+
+      {/* Type filter chips */}
+      <div className="mb-4 flex flex-wrap items-center gap-2">
+        {feedTabs.map((tab) => (
+          <Link
+            key={tab.value}
+            href={tabHref(tab.value)}
+            className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
+              type === tab.value
+                ? 'bg-sg-accent-soft text-sg-accent-deep font-semibold'
+                : 'border-sg-line bg-sg-surface text-sg-ink-soft hover:bg-sg-line-soft border'
+            }`}
+          >
+            {tab.label}
+          </Link>
+        ))}
+        {/* Following toggle */}
         {userId && (
-          <div className="flex overflow-hidden rounded-lg border border-gray-300 text-sm font-medium">
+          <div className="ml-auto flex gap-1">
             <Link
               href={`/feed?${new URLSearchParams({ ...(type !== 'all' ? { type } : {}) })}`}
-              className={`px-4 py-2 transition-colors ${
-                following ? 'bg-blue-600 text-white' : 'bg-white text-gray-600 hover:bg-gray-50'
+              className={`rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
+                following
+                  ? 'bg-sg-accent text-white'
+                  : 'border-sg-line bg-sg-surface text-sg-ink-soft hover:bg-sg-line-soft border'
               }`}
             >
               フォロー中
             </Link>
             <Link
               href={`/feed?following=false${type !== 'all' ? `&type=${type}` : ''}`}
-              className={`border-l border-gray-300 px-4 py-2 transition-colors ${
-                !following ? 'bg-blue-600 text-white' : 'bg-white text-gray-600 hover:bg-gray-50'
+              className={`rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
+                !following
+                  ? 'bg-sg-accent text-white'
+                  : 'border-sg-line bg-sg-surface text-sg-ink-soft hover:bg-sg-line-soft border'
               }`}
             >
               すべて
@@ -125,31 +150,15 @@ export default async function FeedPage({ searchParams }: PageProps) {
         )}
       </div>
 
-      <div className="mb-6 flex gap-2">
-        {feedTabs.map((tab) => (
-          <Link
-            key={tab.value}
-            href={tabHref(tab.value)}
-            className={`rounded-full px-4 py-1.5 text-sm font-semibold transition-colors ${
-              type === tab.value
-                ? 'bg-gray-900 text-white shadow-sm'
-                : 'bg-white text-gray-600 ring-1 ring-gray-200 hover:bg-gray-50'
-            }`}
-          >
-            {tab.label}
-          </Link>
-        ))}
-      </div>
-
       {initialArticles.length === 0 ? (
-        <div className="py-20 text-center">
-          <p className="mb-3 text-gray-500">
+        <div className="border-sg-line bg-sg-surface rounded-2xl border py-20 text-center">
+          <p className="text-sg-ink-soft mb-3">
             {following ? 'フォロー中の企業の記事がまだありません' : '記事がまだありません'}
           </p>
           {following && (
             <Link
               href="/discover"
-              className="inline-flex items-center gap-1 rounded-full bg-blue-600 px-5 py-2 text-sm font-semibold text-white hover:bg-blue-700"
+              className="bg-sg-accent hover:bg-sg-accent-deep inline-flex items-center gap-1 rounded-full px-5 py-2 text-sm font-semibold text-white"
             >
               企業をフォローする →
             </Link>

@@ -1,26 +1,24 @@
 @import 'tailwindcss';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Signalog design tokens */
+  --color-sg-bg: #f6f8fa;
+  --color-sg-surface: #ffffff;
+  --color-sg-line: #d8dee4;
+  --color-sg-line-soft: #e8edf1;
+  --color-sg-ink: #1f2933;
+  --color-sg-ink-soft: #5b6772;
+  --color-sg-ink-faint: #97a2ad;
+  --color-sg-accent: #00a4cc;
+  --color-sg-accent-deep: #0089ad;
+  --color-sg-accent-soft: #d8f1f7;
+  --color-sg-warm: #ffb648;
+  --color-sg-warm-soft: #fff1d6;
+  /* Fonts */
+  --font-sans: var(--font-inter), var(--font-zen), system-ui, sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f6f8fa;
+  color: #1f2933;
 }
