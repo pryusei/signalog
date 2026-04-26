@@ -14,7 +14,8 @@
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
     "db:seed": "tsx db/seed/run.ts",
-    "crawl": "tsx crawler/index.ts"
+    "crawl": "tsx crawler/index.ts",
+    "test": "vitest run"
   },
   "dependencies": {
     "@auth/drizzle-adapter": "^1.11.2",
@@ -44,6 +45,7 @@
     "prettier-plugin-tailwindcss": "^0.7.3",
     "tailwindcss": "^4",
     "tsx": "^4.21.0",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^4.1.5"
   }
 }

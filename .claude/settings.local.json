@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm format *)",
+      "Bash(pnpm build *)",
+      "Bash(pnpm add *)",
+      "Bash(pnpm tsc *)",
+      "Bash(gh run *)",
+      "Bash(grep -v \"^--$\")",
+      "Bash(gh issue *)",
+      "Bash(git checkout *)",
+      "Bash(pnpm lint *)",
+      "Bash(pnpm format:check)"
+    ]
+  }
+}
