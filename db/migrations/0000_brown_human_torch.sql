@@ -1,5 +1,4 @@
 CREATE TABLE "accounts" (
-	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"user_id" uuid NOT NULL,
 	"type" text NOT NULL,
 	"provider" text NOT NULL,
@@ -10,7 +9,8 @@ CREATE TABLE "accounts" (
 	"token_type" text,
 	"scope" text,
 	"id_token" text,
-	"session_state" text
+	"session_state" text,
+	CONSTRAINT "accounts_provider_provider_account_id_pk" PRIMARY KEY("provider","provider_account_id")
 );
 --> statement-breakpoint
 CREATE TABLE "articles" (
@@ -57,11 +57,9 @@ CREATE TABLE "follows" (
 );
 --> statement-breakpoint
 CREATE TABLE "sessions" (
-	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
-	"session_token" text NOT NULL,
+	"session_token" text PRIMARY KEY NOT NULL,
 	"user_id" uuid NOT NULL,
-	"expires" timestamp with time zone NOT NULL,
-	CONSTRAINT "sessions_session_token_unique" UNIQUE("session_token")
+	"expires" timestamp with time zone NOT NULL
 );
 --> statement-breakpoint
 CREATE TABLE "users" (
