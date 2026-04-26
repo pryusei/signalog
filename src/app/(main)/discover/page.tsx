@@ -1,5 +1,5 @@
 import { ilike, or, eq } from 'drizzle-orm'
-import Image from 'next/image'
+import Link from 'next/link'
 import { Suspense } from 'react'
 
 import { FollowButton } from '@/components/FollowButton'
@@ -40,13 +40,11 @@ export default async function DiscoverPage({ searchParams }: PageProps) {
   const followedSet = new Set(followedRows.map((f) => f.companyId))
 
   return (
-    <main className="mx-auto max-w-4xl px-4 py-8">
-      <div className="mb-8">
-        <h1 className="mb-1 text-2xl font-bold text-gray-900">企業を探す</h1>
-        <p className="text-sm text-gray-500">
-          気になる企業をフォローしてフィードをカスタマイズしよう
-        </p>
-      </div>
+    <main className="mx-auto max-w-4xl px-6 py-8">
+      <h1 className="text-sg-ink mb-1 text-2xl font-black">企業を探す</h1>
+      <p className="text-sg-ink-soft mb-6 text-sm">
+        気になる企業をフォローしてフィードをカスタマイズしよう
+      </p>
 
       <div className="mb-6">
         <Suspense>
@@ -55,7 +53,7 @@ export default async function DiscoverPage({ searchParams }: PageProps) {
       </div>
 
       {companyList.length === 0 ? (
-        <p className="py-16 text-center text-gray-500">
+        <p className="text-sg-ink-soft py-16 text-center">
           {query ? `「${query}」に一致する企業が見つかりません` : '企業がまだ登録されていません'}
         </p>
       ) : (
@@ -64,25 +62,34 @@ export default async function DiscoverPage({ searchParams }: PageProps) {
             {companyList.map((company) => (
               <li
                 key={company.id}
-                className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white p-4 shadow-sm transition-shadow hover:shadow-md"
+                className="border-sg-line bg-sg-surface flex items-center gap-3 rounded-2xl border p-4 transition-shadow hover:shadow-sm"
               >
                 {company.logoUrl ? (
-                  <Image
+                  /* eslint-disable-next-line @next/next/no-img-element */
+                  <img
                     src={company.logoUrl}
                     alt={company.name}
                     width={44}
                     height={44}
-                    className="h-11 w-11 shrink-0 rounded-lg object-contain"
+                    className="h-11 w-11 shrink-0 rounded-xl object-contain"
+                    onError={(e) => {
+                      ;(e.currentTarget as HTMLImageElement).style.display = 'none'
+                    }}
                   />
                 ) : (
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-gray-100 text-base font-bold text-gray-500">
-                    {company.name[0]}
+                  <div className="bg-sg-accent-soft text-sg-accent-deep flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-sm font-bold">
+                    {company.name.slice(0, 2)}
                   </div>
                 )}
                 <div className="min-w-0 flex-1">
-                  <p className="truncate font-semibold text-gray-900">{company.name}</p>
+                  <Link
+                    href={`/companies/${company.slug}`}
+                    className="text-sg-ink hover:text-sg-accent-deep truncate font-semibold"
+                  >
+                    {company.name}
+                  </Link>
                   {company.description && (
-                    <p className="truncate text-xs text-gray-500">{company.description}</p>
+                    <p className="text-sg-ink-faint truncate text-xs">{company.description}</p>
                   )}
                 </div>
                 {userId ? (
@@ -93,15 +100,15 @@ export default async function DiscoverPage({ searchParams }: PageProps) {
                 ) : (
                   <a
                     href="/login"
-                    className="shrink-0 rounded-full bg-blue-600 px-4 py-1.5 text-sm font-semibold text-white hover:bg-blue-700"
+                    className="bg-sg-accent hover:bg-sg-accent-deep shrink-0 rounded-full px-4 py-1.5 text-sm font-semibold text-white"
                   >
-                    フォロー
+                    ＋ フォロー
                   </a>
                 )}
               </li>
             ))}
           </ul>
-          <p className="mt-4 text-right text-xs text-gray-400">{companyList.length} 社</p>
+          <p className="text-sg-ink-faint mt-4 text-right text-xs">{companyList.length} 社</p>
         </>
       )}
     </main>

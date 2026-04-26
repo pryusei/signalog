@@ -39,13 +39,13 @@ export function FollowButton({ companyId, initialFollowed, onUnfollow }: FollowB
     <button
       onClick={toggle}
       disabled={pending}
-      className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors disabled:opacity-50 ${
+      className={`shrink-0 rounded-full px-4 py-1.5 text-sm font-semibold transition-colors disabled:opacity-50 ${
         followed
-          ? 'bg-gray-100 text-gray-700 hover:bg-red-50 hover:text-red-600'
-          : 'bg-blue-600 text-white hover:bg-blue-700'
+          ? 'border-sg-line bg-sg-surface text-sg-ink-soft border hover:border-red-200 hover:bg-red-50 hover:text-red-600'
+          : 'bg-sg-accent hover:bg-sg-accent-deep text-white'
       }`}
     >
-      {followed ? 'フォロー中' : 'フォロー'}
+      {followed ? 'フォロー中 ✓' : '＋ フォロー'}
     </button>
   )
 }

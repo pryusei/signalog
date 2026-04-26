@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 
@@ -20,13 +19,13 @@ export function FollowedCompaniesList({ initialList }: { initialList: FollowedCo
 
   if (list.length === 0) {
     return (
-      <div className="py-16 text-center">
-        <p className="mb-4 text-gray-500">フォロー中の企業はまだありません</p>
+      <div className="border-sg-line bg-sg-surface rounded-2xl border py-16 text-center">
+        <p className="text-sg-ink-soft mb-4">フォロー中の企業はまだありません</p>
         <Link
           href="/discover"
-          className="rounded-full bg-blue-600 px-6 py-2 text-sm font-medium text-white hover:bg-blue-700"
+          className="bg-sg-accent hover:bg-sg-accent-deep rounded-full px-6 py-2 text-sm font-semibold text-white"
         >
-          企業を探す
+          企業を探す →
         </Link>
       </div>
     )
@@ -37,33 +36,42 @@ export function FollowedCompaniesList({ initialList }: { initialList: FollowedCo
       {list.map((company) => (
         <li
           key={company.id}
-          className="flex items-center gap-4 rounded-xl border border-gray-200 bg-white p-4 shadow-sm"
+          className="border-sg-line bg-sg-surface flex items-center gap-3 rounded-2xl border p-4"
         >
           {company.logoUrl ? (
-            <Image
+            /* eslint-disable-next-line @next/next/no-img-element */
+            <img
               src={company.logoUrl}
               alt={company.name}
-              width={40}
-              height={40}
-              className="h-10 w-10 rounded-md object-contain"
+              width={44}
+              height={44}
+              className="h-11 w-11 shrink-0 rounded-xl object-contain"
+              onError={(e) => {
+                ;(e.currentTarget as HTMLImageElement).style.display = 'none'
+              }}
             />
           ) : (
-            <div className="flex h-10 w-10 items-center justify-center rounded-md bg-gray-100 text-sm font-bold text-gray-400">
-              {company.name[0]}
+            <div className="bg-sg-accent-soft text-sg-accent-deep flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-sm font-bold">
+              {company.name.slice(0, 2)}
             </div>
           )}
           <div className="min-w-0 flex-1">
-            <p className="truncate font-medium text-gray-900">{company.name}</p>
+            <Link
+              href={`/companies/${company.slug}`}
+              className="text-sg-ink hover:text-sg-accent-deep font-semibold"
+            >
+              {company.name}
+            </Link>
             {company.description && (
-              <p className="truncate text-sm text-gray-500">{company.description}</p>
+              <p className="text-sg-ink-soft truncate text-xs">{company.description}</p>
             )}
-            <p className="text-xs text-gray-400">
-              フォロー:{' '}
+            <p className="text-sg-ink-faint text-[11px]">
               {company.followedAt.toLocaleDateString('ja-JP', {
                 year: 'numeric',
                 month: 'short',
                 day: 'numeric',
-              })}
+              })}{' '}
+              にフォロー
             </p>
           </div>
           <FollowButton
