@@ -13,17 +13,21 @@
     "db:migrate": "drizzle-kit migrate",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
-    "db:seed": "tsx db/seed/run.ts"
+    "db:seed": "tsx db/seed/run.ts",
+    "crawl": "tsx crawler/index.ts"
   },
   "dependencies": {
     "@auth/drizzle-adapter": "^1.11.2",
     "@neondatabase/serverless": "^1.1.0",
     "clsx": "^2.1.1",
     "drizzle-orm": "^0.45.2",
+    "isomorphic-dompurify": "^3.10.0",
     "next": "16.2.4",
     "next-auth": "5.0.0-beta.31",
+    "p-limit": "^7.3.0",
     "react": "19.2.5",
     "react-dom": "19.2.4",
+    "rss-parser": "^3.13.0",
     "tailwind-merge": "^3.5.0",
     "zod": "^4.3.6"
   },
