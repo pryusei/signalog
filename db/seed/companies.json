@@ -1,0 +1,444 @@
+[
+  {
+    "slug": "mercari",
+    "name": "メルカリ",
+    "domain": "mercari.com",
+    "logo_url": "https://logo.clearbit.com/mercari.com",
+    "description": "フリマアプリ「メルカリ」を運営するテクノロジー企業",
+    "feeds": [{ "feed_url": "https://engineering.mercari.com/blog/feed.xml", "feed_type": "tech" }]
+  },
+  {
+    "slug": "cookpad",
+    "name": "クックパッド",
+    "domain": "cookpad.com",
+    "logo_url": "https://logo.clearbit.com/cookpad.com",
+    "description": "料理レシピサービス「クックパッド」を運営",
+    "feeds": [{ "feed_url": "https://techlife.cookpad.com/feed", "feed_type": "tech" }]
+  },
+  {
+    "slug": "smarthr",
+    "name": "SmartHR",
+    "domain": "smarthr.jp",
+    "logo_url": "https://logo.clearbit.com/smarthr.jp",
+    "description": "クラウド人事労務ソフト「SmartHR」を提供",
+    "feeds": [{ "feed_url": "https://tech.smarthr.jp/feed", "feed_type": "tech" }]
+  },
+  {
+    "slug": "freee",
+    "name": "freee",
+    "domain": "freee.co.jp",
+    "logo_url": "https://logo.clearbit.com/freee.co.jp",
+    "description": "クラウド会計・人事労務ソフト「freee」を提供",
+    "feeds": [{ "feed_url": "https://developers.freee.co.jp/feed", "feed_type": "tech" }]
+  },
+  {
+    "slug": "sansan",
+    "name": "Sansan",
+    "domain": "sansan.com",
+    "logo_url": "https://logo.clearbit.com/sansan.com",
+    "description": "クラウド名刺管理サービス「Sansan」を提供",
+    "feeds": [{ "feed_url": "https://buildersbox.corp-sansan.com/feed", "feed_type": "tech" }]
+  },
+  {
+    "slug": "chatwork",
+    "name": "Chatwork",
+    "domain": "chatwork.com",
+    "logo_url": "https://logo.clearbit.com/chatwork.com",
+    "description": "ビジネスチャット「Chatwork」を提供",
+    "feeds": [{ "feed_url": "https://creators-note.chatwork.com/feed", "feed_type": "tech" }]
+  },
+  {
+    "slug": "dena",
+    "name": "DeNA",
+    "domain": "dena.com",
+    "logo_url": "https://logo.clearbit.com/dena.com",
+    "description": "エンターテインメント・ヘルスケア事業を展開",
+    "feeds": [{ "feed_url": "https://engineer.dena.com/feed", "feed_type": "tech" }]
+  },
+  {
+    "slug": "gree",
+    "name": "GREE",
+    "domain": "gree.net",
+    "logo_url": "https://logo.clearbit.com/gree.net",
+    "description": "モバイルゲーム・インターネット事業を展開",
+    "feeds": [{ "feed_url": "https://labs.gree.jp/blog/feed/", "feed_type": "tech" }]
+  },
+  {
+    "slug": "cyberagent",
+    "name": "サイバーエージェント",
+    "domain": "cyberagent.co.jp",
+    "logo_url": "https://logo.clearbit.com/cyberagent.co.jp",
+    "description": "「Ameba」「AbemaTV」などを運営するインターネット企業",
+    "feeds": [{ "feed_url": "https://developers.cyberagent.co.jp/blog/feed/", "feed_type": "tech" }]
+  },
+  {
+    "slug": "mixi",
+    "name": "MIXI",
+    "domain": "mixi.co.jp",
+    "logo_url": "https://logo.clearbit.com/mixi.co.jp",
+    "description": "「モンスターストライク」などゲーム・SNS事業を展開",
+    "feeds": [{ "feed_url": "https://mixi.engineering/feed", "feed_type": "tech" }]
+  },
+  {
+    "slug": "lycorp",
+    "name": "LINEヤフー",
+    "domain": "lycorp.co.jp",
+    "logo_url": "https://logo.clearbit.com/lycorp.co.jp",
+    "description": "LINE・Yahoo! Japanを運営するインターネット企業",
+    "feeds": [{ "feed_url": "https://techblog.lycorp.co.jp/feed/ja", "feed_type": "tech" }]
+  },
+  {
+    "slug": "recruit",
+    "name": "リクルート",
+    "domain": "recruit.co.jp",
+    "logo_url": "https://logo.clearbit.com/recruit.co.jp",
+    "description": "HR・マーケティング・ライフスタイルの情報サービスを提供",
+    "feeds": [{ "feed_url": "https://engineering.recruit.co.jp/feed/", "feed_type": "tech" }]
+  },
+  {
+    "slug": "money-forward",
+    "name": "マネーフォワード",
+    "domain": "moneyforward.com",
+    "logo_url": "https://logo.clearbit.com/moneyforward.com",
+    "description": "家計簿・会計ソフト「マネーフォワード」を提供",
+    "feeds": [{ "feed_url": "https://moneyforward-dev.jp/feed", "feed_type": "tech" }]
+  },
+  {
+    "slug": "zozo",
+    "name": "ZOZO",
+    "domain": "zozo.jp",
+    "logo_url": "https://logo.clearbit.com/zozo.jp",
+    "description": "ファッション通販サイト「ZOZOTOWN」を運営",
+    "feeds": [{ "feed_url": "https://techblog.zozo.com/feed", "feed_type": "tech" }]
+  },
+  {
+    "slug": "layerx",
+    "name": "LayerX",
+    "domain": "layerx.co.jp",
+    "logo_url": "https://logo.clearbit.com/layerx.co.jp",
+    "description": "バクラク事業などフィンテック・エンタープライズSaaSを展開",
+    "feeds": [{ "feed_url": "https://tech.layerx.co.jp/feed", "feed_type": "tech" }]
+  },
+  {
+    "slug": "timee",
+    "name": "タイミー",
+    "domain": "timee.co.jp",
+    "logo_url": "https://logo.clearbit.com/timee.co.jp",
+    "description": "スキマバイトサービス「タイミー」を運営",
+    "feeds": [{ "feed_url": "https://tech.timee.co.jp/feed", "feed_type": "tech" }]
+  },
+  {
+    "slug": "nulab",
+    "name": "ヌーラボ",
+    "domain": "nulab.com",
+    "logo_url": "https://logo.clearbit.com/nulab.com",
+    "description": "「Backlog」「Cacoo」などプロジェクト管理ツールを提供",
+    "feeds": [{ "feed_url": "https://nulab.com/ja/blog/feed/", "feed_type": "tech" }]
+  },
+  {
+    "slug": "classmethod",
+    "name": "クラスメソッド",
+    "domain": "classmethod.jp",
+    "logo_url": "https://logo.clearbit.com/classmethod.jp",
+    "description": "AWSなどクラウドインテグレーションを提供するITコンサルティング企業",
+    "feeds": [{ "feed_url": "https://dev.classmethod.jp/feed/", "feed_type": "tech" }]
+  },
+  {
+    "slug": "base",
+    "name": "BASE",
+    "domain": "thebase.com",
+    "logo_url": "https://logo.clearbit.com/thebase.com",
+    "description": "ネットショップ作成サービス「BASE」を運営",
+    "feeds": [{ "feed_url": "https://devblog.thebase.in/feed", "feed_type": "tech" }]
+  },
+  {
+    "slug": "raksul",
+    "name": "ラクスル",
+    "domain": "raksul.com",
+    "logo_url": "https://logo.clearbit.com/raksul.com",
+    "description": "印刷・広告・物流のプラットフォームを運営",
+    "feeds": [{ "feed_url": "https://tech.raksul.com/feed", "feed_type": "tech" }]
+  },
+  {
+    "slug": "retty",
+    "name": "Retty",
+    "domain": "retty.me",
+    "logo_url": "https://logo.clearbit.com/retty.me",
+    "description": "実名グルメSNS「Retty」を運営",
+    "feeds": [{ "feed_url": "https://engineer.retty.me/feed", "feed_type": "tech" }]
+  },
+  {
+    "slug": "cybozu",
+    "name": "サイボウズ",
+    "domain": "cybozu.co.jp",
+    "logo_url": "https://logo.clearbit.com/cybozu.co.jp",
+    "description": "グループウェア「kintone」「Garoon」などを提供",
+    "feeds": [{ "feed_url": "https://blog.cybozu.io/feed", "feed_type": "tech" }]
+  },
+  {
+    "slug": "kayac",
+    "name": "カヤック",
+    "domain": "kayac.com",
+    "logo_url": "https://logo.clearbit.com/kayac.com",
+    "description": "Webサービス・ゲームの企画・開発・運営を行うIT企業",
+    "feeds": [{ "feed_url": "https://techblog.kayac.com/feed", "feed_type": "tech" }]
+  },
+  {
+    "slug": "paidy",
+    "name": "Paidy",
+    "domain": "paidy.com",
+    "logo_url": "https://logo.clearbit.com/paidy.com",
+    "description": "後払い決済サービス「Paidy」を提供するフィンテック企業",
+    "feeds": [{ "feed_url": "https://blog.paidy.com/feed", "feed_type": "tech" }]
+  },
+  {
+    "slug": "wantedly",
+    "name": "Wantedly",
+    "domain": "wantedly.com",
+    "logo_url": "https://logo.clearbit.com/wantedly.com",
+    "description": "ビジョンでつながる採用サービス「Wantedly」を運営",
+    "feeds": [
+      { "feed_url": "https://www.wantedly.com/companies/wantedly/feed/blogs", "feed_type": "tech" }
+    ]
+  },
+  {
+    "slug": "medley",
+    "name": "メドレー",
+    "domain": "medley.jp",
+    "logo_url": "https://logo.clearbit.com/medley.jp",
+    "description": "医療・介護・福祉の人材採用サービスを提供",
+    "feeds": [{ "feed_url": "https://developer.medley.jp/feed", "feed_type": "tech" }]
+  },
+  {
+    "slug": "akatsuki",
+    "name": "アカツキ",
+    "domain": "aktsk.jp",
+    "logo_url": "https://logo.clearbit.com/aktsk.jp",
+    "description": "モバイルゲーム・エンターテインメント事業を展開",
+    "feeds": [{ "feed_url": "https://hackerslab.aktsk.jp/feed", "feed_type": "tech" }]
+  },
+  {
+    "slug": "carta",
+    "name": "CARTA HOLDINGS",
+    "domain": "cartaholdings.co.jp",
+    "logo_url": "https://logo.clearbit.com/cartaholdings.co.jp",
+    "description": "デジタルマーケティング事業を展開",
+    "feeds": [{ "feed_url": "https://techblog.cartaholdings.co.jp/feed", "feed_type": "tech" }]
+  },
+  {
+    "slug": "brainpad",
+    "name": "ブレインパッド",
+    "domain": "brainpad.co.jp",
+    "logo_url": "https://logo.clearbit.com/brainpad.co.jp",
+    "description": "データ活用・AIによる課題解決を支援するコンサルティング企業",
+    "feeds": [{ "feed_url": "https://blog.brainpad.co.jp/feed", "feed_type": "tech" }]
+  },
+  {
+    "slug": "tis",
+    "name": "TIS",
+    "domain": "tis.co.jp",
+    "logo_url": "https://logo.clearbit.com/tis.co.jp",
+    "description": "IT サービス・コンサルティングを提供する大手 SIer",
+    "feeds": [{ "feed_url": "https://techblog.tis.co.jp/feed", "feed_type": "tech" }]
+  },
+  {
+    "slug": "speee",
+    "name": "Speee",
+    "domain": "speee.jp",
+    "logo_url": "https://logo.clearbit.com/speee.jp",
+    "description": "DX事業・不動産テックなどを展開するテクノロジー企業",
+    "feeds": [{ "feed_url": "https://tech.speee.jp/feed", "feed_type": "tech" }]
+  },
+  {
+    "slug": "yumemi",
+    "name": "ゆめみ",
+    "domain": "yumemi.co.jp",
+    "logo_url": "https://logo.clearbit.com/yumemi.co.jp",
+    "description": "モバイルアプリ・Webサービス開発のプロフェッショナル集団",
+    "feeds": [{ "feed_url": "https://zenn.dev/p/yumemi_inc/feed", "feed_type": "tech" }]
+  },
+  {
+    "slug": "ubie",
+    "name": "Ubie",
+    "domain": "ubie.app",
+    "logo_url": "https://logo.clearbit.com/ubie.app",
+    "description": "AI問診サービス「ユビー」を提供するヘルステック企業",
+    "feeds": [{ "feed_url": "https://zenn.dev/p/ubie_dev/feed", "feed_type": "tech" }]
+  },
+  {
+    "slug": "plaid",
+    "name": "Plaid",
+    "domain": "plaid.co.jp",
+    "logo_url": "https://logo.clearbit.com/plaid.co.jp",
+    "description": "CXプラットフォーム「KARTE」を提供",
+    "feeds": [{ "feed_url": "https://tech.plaid.co.jp/feed", "feed_type": "tech" }]
+  },
+  {
+    "slug": "mobility-technologies",
+    "name": "Mobility Technologies",
+    "domain": "mo-t.com",
+    "logo_url": "https://logo.clearbit.com/mo-t.com",
+    "description": "タクシーアプリ「GO」を提供するモビリティ企業",
+    "feeds": [{ "feed_url": "https://lab.mo-t.com/rss", "feed_type": "tech" }]
+  },
+  {
+    "slug": "biglobe",
+    "name": "BIGLOBE",
+    "domain": "biglobe.co.jp",
+    "logo_url": "https://logo.clearbit.com/biglobe.co.jp",
+    "description": "インターネットプロバイダー・クラウドサービスを提供",
+    "feeds": [{ "feed_url": "https://style.biglobe.co.jp/entry/rss", "feed_type": "tech" }]
+  },
+  {
+    "slug": "gmo-internet",
+    "name": "GMOインターネット",
+    "domain": "gmo.jp",
+    "logo_url": "https://logo.clearbit.com/gmo.jp",
+    "description": "インターネットインフラ・金融・セキュリティ事業を展開",
+    "feeds": [{ "feed_url": "https://developers.gmo.jp/feed", "feed_type": "tech" }]
+  },
+  {
+    "slug": "rakuten",
+    "name": "楽天グループ",
+    "domain": "rakuten.co.jp",
+    "logo_url": "https://logo.clearbit.com/rakuten.co.jp",
+    "description": "EC・金融・通信など多様なサービスを展開するIT企業",
+    "feeds": [{ "feed_url": "https://engineering.rakuten.today/feed.xml", "feed_type": "tech" }]
+  },
+  {
+    "slug": "dmm",
+    "name": "DMM.com",
+    "domain": "dmm.com",
+    "logo_url": "https://logo.clearbit.com/dmm.com",
+    "description": "デジタルコンテンツ・FX・英会話など多様なサービスを展開",
+    "feeds": [{ "feed_url": "https://inside.dmm.com/feed", "feed_type": "tech" }]
+  },
+  {
+    "slug": "ntt-communications",
+    "name": "NTTコミュニケーションズ",
+    "domain": "ntt.com",
+    "logo_url": "https://logo.clearbit.com/ntt.com",
+    "description": "法人向けICTソリューションを提供するNTTグループ企業",
+    "feeds": [{ "feed_url": "https://engineers.ntt.com/feed", "feed_type": "tech" }]
+  },
+  {
+    "slug": "ntt-data",
+    "name": "NTTデータ",
+    "domain": "nttdata.com",
+    "logo_url": "https://logo.clearbit.com/nttdata.com",
+    "description": "ITサービス・コンサルティングを提供する大手SIer",
+    "feeds": [{ "feed_url": "https://engineering.nttdata.com/feed/", "feed_type": "tech" }]
+  },
+  {
+    "slug": "fujitsu",
+    "name": "富士通",
+    "domain": "fujitsu.com",
+    "logo_url": "https://logo.clearbit.com/fujitsu.com",
+    "description": "ITサービス・製品を提供する大手テクノロジー企業",
+    "feeds": [{ "feed_url": "https://blog.fujitsu.com/jp/feed/", "feed_type": "tech" }]
+  },
+  {
+    "slug": "hitachi",
+    "name": "日立製作所",
+    "domain": "hitachi.co.jp",
+    "logo_url": "https://logo.clearbit.com/hitachi.co.jp",
+    "description": "IT・エネルギー・インフラなど幅広い事業を展開",
+    "feeds": [{ "feed_url": "https://www.hitachi.co.jp/rd/blog/feed/", "feed_type": "tech" }]
+  },
+  {
+    "slug": "sony",
+    "name": "ソニー",
+    "domain": "sony.com",
+    "logo_url": "https://logo.clearbit.com/sony.com",
+    "description": "エレクトロニクス・エンターテインメント・金融事業を展開",
+    "feeds": [{ "feed_url": "https://www.sonystyle.com.au/feed/", "feed_type": "tech" }]
+  },
+  {
+    "slug": "softbank",
+    "name": "ソフトバンク",
+    "domain": "softbank.jp",
+    "logo_url": "https://logo.clearbit.com/softbank.jp",
+    "description": "通信・インターネット・AI事業を展開",
+    "feeds": [{ "feed_url": "https://www.softbank.jp/corp/blog/feed/", "feed_type": "tech" }]
+  },
+  {
+    "slug": "kddi",
+    "name": "KDDI",
+    "domain": "kddi.com",
+    "logo_url": "https://logo.clearbit.com/kddi.com",
+    "description": "「au」ブランドの通信サービスを中心に事業を展開",
+    "feeds": [{ "feed_url": "https://developers.kddi.com/blog/feed/", "feed_type": "tech" }]
+  },
+  {
+    "slug": "docomo",
+    "name": "NTTドコモ",
+    "domain": "docomo.ne.jp",
+    "logo_url": "https://logo.clearbit.com/docomo.ne.jp",
+    "description": "国内最大の携帯電話事業者、NTTグループ企業",
+    "feeds": [{ "feed_url": "https://nttdocomo-developers.jp/feed", "feed_type": "tech" }]
+  },
+  {
+    "slug": "gunosy",
+    "name": "Gunosy",
+    "domain": "gunosy.co.jp",
+    "logo_url": "https://logo.clearbit.com/gunosy.co.jp",
+    "description": "ニュースアプリ「グノシー」「ニュースパス」を運営",
+    "feeds": [{ "feed_url": "https://gunosy.github.io/feed.xml", "feed_type": "tech" }]
+  },
+  {
+    "slug": "drecom",
+    "name": "ドリコム",
+    "domain": "drecom.co.jp",
+    "logo_url": "https://logo.clearbit.com/drecom.co.jp",
+    "description": "ソーシャルゲーム・Webサービスの開発・運営を行う企業",
+    "feeds": [{ "feed_url": "https://developer.drecom.co.jp/feed", "feed_type": "tech" }]
+  },
+  {
+    "slug": "readyfor",
+    "name": "READYFOR",
+    "domain": "readyfor.jp",
+    "logo_url": "https://logo.clearbit.com/readyfor.jp",
+    "description": "クラウドファンディングプラットフォーム「READYFOR」を運営",
+    "feeds": [{ "feed_url": "https://note.readyfor.jp/m/m94e18d7694d0/rss", "feed_type": "tech" }]
+  },
+  {
+    "slug": "herp",
+    "name": "HERP",
+    "domain": "herp.careers",
+    "logo_url": "https://logo.clearbit.com/herp.careers",
+    "description": "採用管理システム「HERP Hire」を提供するHRテック企業",
+    "feeds": [{ "feed_url": "https://zenn.dev/p/herp_inc/feed", "feed_type": "tech" }]
+  },
+  {
+    "slug": "leaner",
+    "name": "Leaner Technologies",
+    "domain": "leaner.jp",
+    "logo_url": "https://logo.clearbit.com/leaner.jp",
+    "description": "購買DXクラウド「Leaner調達」を提供するスタートアップ",
+    "feeds": [{ "feed_url": "https://zenn.dev/p/leaner_technologies/feed", "feed_type": "tech" }]
+  },
+  {
+    "slug": "smartbank",
+    "name": "スマートバンク",
+    "domain": "smartbank.co.jp",
+    "logo_url": "https://logo.clearbit.com/smartbank.co.jp",
+    "description": "家計簿プリカ「B/43」を提供するフィンテック企業",
+    "feeds": [{ "feed_url": "https://blog.smartbank.co.jp/feed", "feed_type": "tech" }]
+  },
+  {
+    "slug": "hacomono",
+    "name": "hacomono",
+    "domain": "hacomono.jp",
+    "logo_url": "https://logo.clearbit.com/hacomono.jp",
+    "description": "ウェルネス産業向け店舗運営プラットフォームを提供",
+    "feeds": [{ "feed_url": "https://techblog.hacomono.jp/feed", "feed_type": "tech" }]
+  },
+  {
+    "slug": "helpfeel",
+    "name": "Helpfeel",
+    "domain": "helpfeel.com",
+    "logo_url": "https://logo.clearbit.com/helpfeel.com",
+    "description": "「Helpfeel」などナレッジ管理ツールを提供",
+    "feeds": [{ "feed_url": "https://scrapbox.io/nota-technica/feed", "feed_type": "tech" }]
+  }
+]
