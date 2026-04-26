@@ -77,15 +77,7 @@
     "domain": "mixi.co.jp",
     "logo_url": "https://logo.clearbit.com/mixi.co.jp",
     "description": "「モンスターストライク」などゲーム・SNS事業を展開",
-    "feeds": [{ "feed_url": "https://mixi.engineering/feed", "feed_type": "tech" }]
-  },
-  {
-    "slug": "lycorp",
-    "name": "LINEヤフー",
-    "domain": "lycorp.co.jp",
-    "logo_url": "https://logo.clearbit.com/lycorp.co.jp",
-    "description": "LINE・Yahoo! Japanを運営するインターネット企業",
-    "feeds": [{ "feed_url": "https://techblog.lycorp.co.jp/feed/ja", "feed_type": "tech" }]
+    "feeds": [{ "feed_url": "https://zenn.dev/p/mixi/feed", "feed_type": "tech" }]
   },
   {
     "slug": "recruit",
@@ -93,7 +85,7 @@
     "domain": "recruit.co.jp",
     "logo_url": "https://logo.clearbit.com/recruit.co.jp",
     "description": "HR・マーケティング・ライフスタイルの情報サービスを提供",
-    "feeds": [{ "feed_url": "https://engineering.recruit.co.jp/feed/", "feed_type": "tech" }]
+    "feeds": [{ "feed_url": "https://blog.recruit.co.jp/rtc/feed", "feed_type": "tech" }]
   },
   {
     "slug": "money-forward",
@@ -152,14 +144,6 @@
     "feeds": [{ "feed_url": "https://devblog.thebase.in/feed", "feed_type": "tech" }]
   },
   {
-    "slug": "raksul",
-    "name": "ラクスル",
-    "domain": "raksul.com",
-    "logo_url": "https://logo.clearbit.com/raksul.com",
-    "description": "印刷・広告・物流のプラットフォームを運営",
-    "feeds": [{ "feed_url": "https://tech.raksul.com/feed", "feed_type": "tech" }]
-  },
-  {
     "slug": "retty",
     "name": "Retty",
     "domain": "retty.me",
@@ -184,22 +168,12 @@
     "feeds": [{ "feed_url": "https://techblog.kayac.com/feed", "feed_type": "tech" }]
   },
   {
-    "slug": "paidy",
-    "name": "Paidy",
-    "domain": "paidy.com",
-    "logo_url": "https://logo.clearbit.com/paidy.com",
-    "description": "後払い決済サービス「Paidy」を提供するフィンテック企業",
-    "feeds": [{ "feed_url": "https://blog.paidy.com/feed", "feed_type": "tech" }]
-  },
-  {
     "slug": "wantedly",
     "name": "Wantedly",
     "domain": "wantedly.com",
     "logo_url": "https://logo.clearbit.com/wantedly.com",
     "description": "ビジョンでつながる採用サービス「Wantedly」を運営",
-    "feeds": [
-      { "feed_url": "https://www.wantedly.com/companies/wantedly/feed/blogs", "feed_type": "tech" }
-    ]
+    "feeds": [{ "feed_url": "https://medium.com/feed/wantedly-engineering", "feed_type": "tech" }]
   },
   {
     "slug": "medley",
@@ -207,7 +181,7 @@
     "domain": "medley.jp",
     "logo_url": "https://logo.clearbit.com/medley.jp",
     "description": "医療・介護・福祉の人材採用サービスを提供",
-    "feeds": [{ "feed_url": "https://developer.medley.jp/feed", "feed_type": "tech" }]
+    "feeds": [{ "feed_url": "https://zenn.dev/p/medley/feed", "feed_type": "tech" }]
   },
   {
     "slug": "akatsuki",
@@ -232,14 +206,6 @@
     "logo_url": "https://logo.clearbit.com/brainpad.co.jp",
     "description": "データ活用・AIによる課題解決を支援するコンサルティング企業",
     "feeds": [{ "feed_url": "https://blog.brainpad.co.jp/feed", "feed_type": "tech" }]
-  },
-  {
-    "slug": "tis",
-    "name": "TIS",
-    "domain": "tis.co.jp",
-    "logo_url": "https://logo.clearbit.com/tis.co.jp",
-    "description": "IT サービス・コンサルティングを提供する大手 SIer",
-    "feeds": [{ "feed_url": "https://techblog.tis.co.jp/feed", "feed_type": "tech" }]
   },
   {
     "slug": "speee",
@@ -271,7 +237,7 @@
     "domain": "plaid.co.jp",
     "logo_url": "https://logo.clearbit.com/plaid.co.jp",
     "description": "CXプラットフォーム「KARTE」を提供",
-    "feeds": [{ "feed_url": "https://tech.plaid.co.jp/feed", "feed_type": "tech" }]
+    "feeds": [{ "feed_url": "https://tech.plaid.co.jp/rss.xml", "feed_type": "tech" }]
   },
   {
     "slug": "mobility-technologies",
@@ -287,7 +253,7 @@
     "domain": "biglobe.co.jp",
     "logo_url": "https://logo.clearbit.com/biglobe.co.jp",
     "description": "インターネットプロバイダー・クラウドサービスを提供",
-    "feeds": [{ "feed_url": "https://style.biglobe.co.jp/entry/rss", "feed_type": "tech" }]
+    "feeds": [{ "feed_url": "https://note.com/biglobe/rss", "feed_type": "tech" }]
   },
   {
     "slug": "gmo-internet",
@@ -303,15 +269,7 @@
     "domain": "rakuten.co.jp",
     "logo_url": "https://logo.clearbit.com/rakuten.co.jp",
     "description": "EC・金融・通信など多様なサービスを展開するIT企業",
-    "feeds": [{ "feed_url": "https://engineering.rakuten.today/feed.xml", "feed_type": "tech" }]
-  },
-  {
-    "slug": "dmm",
-    "name": "DMM.com",
-    "domain": "dmm.com",
-    "logo_url": "https://logo.clearbit.com/dmm.com",
-    "description": "デジタルコンテンツ・FX・英会話など多様なサービスを展開",
-    "feeds": [{ "feed_url": "https://inside.dmm.com/feed", "feed_type": "tech" }]
+    "feeds": [{ "feed_url": "https://zenn.dev/p/rakuten_tech/feed", "feed_type": "tech" }]
   },
   {
     "slug": "ntt-communications",
@@ -322,52 +280,12 @@
     "feeds": [{ "feed_url": "https://engineers.ntt.com/feed", "feed_type": "tech" }]
   },
   {
-    "slug": "ntt-data",
-    "name": "NTTデータ",
-    "domain": "nttdata.com",
-    "logo_url": "https://logo.clearbit.com/nttdata.com",
-    "description": "ITサービス・コンサルティングを提供する大手SIer",
-    "feeds": [{ "feed_url": "https://engineering.nttdata.com/feed/", "feed_type": "tech" }]
-  },
-  {
-    "slug": "fujitsu",
-    "name": "富士通",
-    "domain": "fujitsu.com",
-    "logo_url": "https://logo.clearbit.com/fujitsu.com",
-    "description": "ITサービス・製品を提供する大手テクノロジー企業",
-    "feeds": [{ "feed_url": "https://blog.fujitsu.com/jp/feed/", "feed_type": "tech" }]
-  },
-  {
-    "slug": "hitachi",
-    "name": "日立製作所",
-    "domain": "hitachi.co.jp",
-    "logo_url": "https://logo.clearbit.com/hitachi.co.jp",
-    "description": "IT・エネルギー・インフラなど幅広い事業を展開",
-    "feeds": [{ "feed_url": "https://www.hitachi.co.jp/rd/blog/feed/", "feed_type": "tech" }]
-  },
-  {
-    "slug": "sony",
-    "name": "ソニー",
-    "domain": "sony.com",
-    "logo_url": "https://logo.clearbit.com/sony.com",
-    "description": "エレクトロニクス・エンターテインメント・金融事業を展開",
-    "feeds": [{ "feed_url": "https://www.sonystyle.com.au/feed/", "feed_type": "tech" }]
-  },
-  {
     "slug": "softbank",
     "name": "ソフトバンク",
     "domain": "softbank.jp",
     "logo_url": "https://logo.clearbit.com/softbank.jp",
     "description": "通信・インターネット・AI事業を展開",
-    "feeds": [{ "feed_url": "https://www.softbank.jp/corp/blog/feed/", "feed_type": "tech" }]
-  },
-  {
-    "slug": "kddi",
-    "name": "KDDI",
-    "domain": "kddi.com",
-    "logo_url": "https://logo.clearbit.com/kddi.com",
-    "description": "「au」ブランドの通信サービスを中心に事業を展開",
-    "feeds": [{ "feed_url": "https://developers.kddi.com/blog/feed/", "feed_type": "tech" }]
+    "feeds": [{ "feed_url": "https://zenn.dev/p/softbank/feed", "feed_type": "tech" }]
   },
   {
     "slug": "docomo",
@@ -383,23 +301,7 @@
     "domain": "gunosy.co.jp",
     "logo_url": "https://logo.clearbit.com/gunosy.co.jp",
     "description": "ニュースアプリ「グノシー」「ニュースパス」を運営",
-    "feeds": [{ "feed_url": "https://gunosy.github.io/feed.xml", "feed_type": "tech" }]
-  },
-  {
-    "slug": "drecom",
-    "name": "ドリコム",
-    "domain": "drecom.co.jp",
-    "logo_url": "https://logo.clearbit.com/drecom.co.jp",
-    "description": "ソーシャルゲーム・Webサービスの開発・運営を行う企業",
-    "feeds": [{ "feed_url": "https://developer.drecom.co.jp/feed", "feed_type": "tech" }]
-  },
-  {
-    "slug": "readyfor",
-    "name": "READYFOR",
-    "domain": "readyfor.jp",
-    "logo_url": "https://logo.clearbit.com/readyfor.jp",
-    "description": "クラウドファンディングプラットフォーム「READYFOR」を運営",
-    "feeds": [{ "feed_url": "https://note.readyfor.jp/m/m94e18d7694d0/rss", "feed_type": "tech" }]
+    "feeds": [{ "feed_url": "https://tech.gunosy.io/feed", "feed_type": "tech" }]
   },
   {
     "slug": "herp",
@@ -415,7 +317,7 @@
     "domain": "leaner.jp",
     "logo_url": "https://logo.clearbit.com/leaner.jp",
     "description": "購買DXクラウド「Leaner調達」を提供するスタートアップ",
-    "feeds": [{ "feed_url": "https://zenn.dev/p/leaner_technologies/feed", "feed_type": "tech" }]
+    "feeds": [{ "feed_url": "https://note.com/leaner/rss", "feed_type": "tech" }]
   },
   {
     "slug": "smartbank",
@@ -439,6 +341,6 @@
     "domain": "helpfeel.com",
     "logo_url": "https://logo.clearbit.com/helpfeel.com",
     "description": "「Helpfeel」などナレッジ管理ツールを提供",
-    "feeds": [{ "feed_url": "https://scrapbox.io/nota-technica/feed", "feed_type": "tech" }]
+    "feeds": [{ "feed_url": "https://zenn.dev/p/helpfeel/feed", "feed_type": "tech" }]
   }
 ]
