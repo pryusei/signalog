@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 
+import { isSafeUrl } from '@/lib/safeUrl'
 import type { ArticleWithCompany } from '@/app/api/feed/route'
 
 function formatRelative(iso: string) {
@@ -16,7 +17,7 @@ function formatRelative(iso: string) {
 }
 
 function LogoTile({ name, logoUrl }: { name: string; logoUrl: string | null }) {
-  if (logoUrl) {
+  if (isSafeUrl(logoUrl)) {
     return (
       /* eslint-disable-next-line @next/next/no-img-element */
       <img
@@ -39,9 +40,10 @@ function LogoTile({ name, logoUrl }: { name: string; logoUrl: string | null }) {
 }
 
 export function ArticleCard({ article }: { article: ArticleWithCompany }) {
+  const safeSourceUrl = isSafeUrl(article.sourceUrl) ? article.sourceUrl : '#'
   return (
     <a
-      href={article.sourceUrl}
+      href={safeSourceUrl}
       target="_blank"
       rel="noopener noreferrer"
       className="group border-sg-line bg-sg-surface hover:border-sg-accent-soft flex gap-4 rounded-2xl border p-4 transition-all hover:shadow-sm"
@@ -74,7 +76,7 @@ export function ArticleCard({ article }: { article: ArticleWithCompany }) {
         </p>
       </div>
 
-      {article.ogpImageUrl && (
+      {isSafeUrl(article.ogpImageUrl) && (
         <div className="hidden shrink-0 sm:block">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img

@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useState } from 'react'
 
+import { CompanyLogo } from '@/components/CompanyLogo'
 import { FollowButton } from '@/components/FollowButton'
 
 interface FollowedCompany {
@@ -38,23 +39,12 @@ export function FollowedCompaniesList({ initialList }: { initialList: FollowedCo
           key={company.id}
           className="border-sg-line bg-sg-surface flex items-center gap-3 rounded-2xl border p-4"
         >
-          {company.logoUrl ? (
-            /* eslint-disable-next-line @next/next/no-img-element */
-            <img
-              src={company.logoUrl}
-              alt={company.name}
-              width={44}
-              height={44}
-              className="h-11 w-11 shrink-0 rounded-xl object-contain"
-              onError={(e) => {
-                ;(e.currentTarget as HTMLImageElement).style.display = 'none'
-              }}
-            />
-          ) : (
-            <div className="bg-sg-accent-soft text-sg-accent-deep flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-sm font-bold">
-              {company.name.slice(0, 2)}
-            </div>
-          )}
+          <CompanyLogo
+            name={company.name}
+            logoUrl={company.logoUrl}
+            imgClassName="h-11 w-11 shrink-0 rounded-xl object-contain"
+            tileClassName="bg-sg-accent-soft text-sg-accent-deep flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-sm font-bold"
+          />
           <div className="min-w-0 flex-1">
             <Link
               href={`/companies/${company.slug}`}
