@@ -63,17 +63,17 @@
 
 ## 技術スタック
 
-| Layer | Technology | 採用理由 |
-|---|---|---|
-| Framework | Next.js 16 (App Router) | Server Components による初回ロード最適化、Vercel との統合が深い |
-| Language | TypeScript (strict mode) | 型安全性とリファクタ耐性。`any` 禁止を徹底 |
-| Styling | Tailwind CSS v4 | ビルド時最適化と一貫したデザイントークン管理 |
-| Database | Neon (Serverless PostgreSQL) | ブランチ機能で PR ごとに DB 分離可能、Free 枠でスモールスタート可能 |
-| ORM | Drizzle ORM | 型安全なクエリビルダ、SQL に近い記述で可読性が高い、軽量 |
-| Auth | Auth.js v5 (NextAuth.js) | OAuth provider の抽象化、Edge Runtime 対応 |
-| Crawler | GitHub Actions（cron 3h） | Phase 1 規模なら無料枠（2,000 分/月）で十分 |
-| Deploy | Vercel | Preview デプロイの即時性、Edge Network |
-| Monitoring | Phase 2 で Sentry + Plausible 導入予定 | エラー追跡 + プライバシー配慮型アナリティクス |
+| Layer      | Technology                             | 採用理由                                                            |
+| ---------- | -------------------------------------- | ------------------------------------------------------------------- |
+| Framework  | Next.js 16 (App Router)                | Server Components による初回ロード最適化、Vercel との統合が深い     |
+| Language   | TypeScript (strict mode)               | 型安全性とリファクタ耐性。`any` 禁止を徹底                          |
+| Styling    | Tailwind CSS v4                        | ビルド時最適化と一貫したデザイントークン管理                        |
+| Database   | Neon (Serverless PostgreSQL)           | ブランチ機能で PR ごとに DB 分離可能、Free 枠でスモールスタート可能 |
+| ORM        | Drizzle ORM                            | 型安全なクエリビルダ、SQL に近い記述で可読性が高い、軽量            |
+| Auth       | Auth.js v5 (NextAuth.js)               | OAuth provider の抽象化、Edge Runtime 対応                          |
+| Crawler    | GitHub Actions（cron 3h）              | Phase 1 規模なら無料枠（2,000 分/月）で十分                         |
+| Deploy     | Vercel                                 | Preview デプロイの即時性、Edge Network                              |
+| Monitoring | Phase 2 で Sentry + Plausible 導入予定 | エラー追跡 + プライバシー配慮型アナリティクス                       |
 
 ---
 
