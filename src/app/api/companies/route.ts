@@ -1,0 +1,18 @@
+import { ilike, or } from 'drizzle-orm'
+import { type NextRequest } from 'next/server'
+
+import { db } from '@/lib/db/server'
+import { companies } from '../../../../db/schema'
+
+export async function GET(request: NextRequest) {
+  const q = request.nextUrl.searchParams.get('q')?.trim() ?? ''
+
+  const rows = await db
+    .select()
+    .from(companies)
+    .where(q ? or(ilike(companies.name, `%${q}%`), ilike(companies.slug, `%${q}%`)) : undefined)
+    .orderBy(companies.name)
+    .limit(100)
+
+  return Response.json({ data: rows })
+}
