@@ -43,6 +43,6 @@ jobs:
         run: pnpm build
         env:
           # ビルド時に必要な最低限の env (実値は Vercel が注入)
-          DATABASE_URL: ${{ secrets.DATABASE_URL || 'postgresql://placeholder/placeholder' }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL || 'postgresql://ci:ci@ep-ci-placeholder.us-east-1.aws.neon.tech/ci' }}
           AUTH_SECRET: ${{ secrets.AUTH_SECRET || 'placeholder-secret-for-ci' }}
           NEXTAUTH_URL: http://localhost:3000
