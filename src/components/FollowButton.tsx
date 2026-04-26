@@ -5,9 +5,10 @@ import { useState } from 'react'
 interface FollowButtonProps {
   companyId: string
   initialFollowed: boolean
+  onUnfollow?: () => void
 }
 
-export function FollowButton({ companyId, initialFollowed }: FollowButtonProps) {
+export function FollowButton({ companyId, initialFollowed, onUnfollow }: FollowButtonProps) {
   const [followed, setFollowed] = useState(initialFollowed)
   const [pending, setPending] = useState(false)
 
@@ -22,7 +23,11 @@ export function FollowButton({ companyId, initialFollowed }: FollowButtonProps) 
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ companyId }),
       })
-      if (!res.ok) setFollowed((prev) => !prev)
+      if (!res.ok) {
+        setFollowed((prev) => !prev)
+      } else if (followed) {
+        onUnfollow?.()
+      }
     } catch {
       setFollowed((prev) => !prev)
     } finally {
@@ -36,7 +41,7 @@ export function FollowButton({ companyId, initialFollowed }: FollowButtonProps) 
       disabled={pending}
       className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors disabled:opacity-50 ${
         followed
-          ? 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+          ? 'bg-gray-100 text-gray-700 hover:bg-red-50 hover:text-red-600'
           : 'bg-blue-600 text-white hover:bg-blue-700'
       }`}
     >

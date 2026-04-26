@@ -19,18 +19,20 @@ export function createDb() {
 type Db = ReturnType<typeof createDb>
 
 export async function storeArticles(db: Db, feed: CompanyFeed, items: FeedItem[]): Promise<number> {
-  let newCount = 0
-
-  for (const item of items) {
-    let normalized: string
+  const validItems = items.flatMap((item) => {
     try {
-      normalized = normalizeUrl(item.link)
+      return [{ item, normalized: normalizeUrl(item.link) }]
     } catch {
-      continue
+      return []
     }
+  })
 
-    const ogImage = await fetchOgImage(item.link)
+  // OGP 画像を並列取得
+  const ogImages = await Promise.all(validItems.map(({ item }) => fetchOgImage(item.link)))
 
+  let newCount = 0
+  for (let i = 0; i < validItems.length; i++) {
+    const { item, normalized } = validItems[i]
     const result = await db
       .insert(schema.articles)
       .values({
@@ -39,7 +41,7 @@ export async function storeArticles(db: Db, feed: CompanyFeed, items: FeedItem[]
         title: sanitizeTitle(item.title),
         sourceUrl: item.link,
         normalizedUrl: normalized,
-        ogpImageUrl: ogImage,
+        ogpImageUrl: ogImages[i],
         publishedAt: new Date(item.pubDate),
       })
       .onConflictDoNothing()

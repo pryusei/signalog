@@ -104,16 +104,20 @@ export default async function FeedPage({ searchParams }: PageProps) {
       <div className="mb-6 flex items-center justify-between">
         <h1 className="text-2xl font-bold text-gray-900">フィード</h1>
         {userId && (
-          <div className="flex rounded-lg border border-gray-200 text-sm">
+          <div className="flex overflow-hidden rounded-lg border border-gray-300 text-sm font-medium">
             <Link
               href={`/feed?${new URLSearchParams({ ...(type !== 'all' ? { type } : {}) })}`}
-              className={`px-3 py-1.5 ${following ? 'bg-blue-600 text-white' : 'text-gray-500 hover:text-gray-700'} rounded-l-lg`}
+              className={`px-4 py-2 transition-colors ${
+                following ? 'bg-blue-600 text-white' : 'bg-white text-gray-600 hover:bg-gray-50'
+              }`}
             >
               フォロー中
             </Link>
             <Link
               href={`/feed?following=false${type !== 'all' ? `&type=${type}` : ''}`}
-              className={`px-3 py-1.5 ${!following ? 'bg-blue-600 text-white' : 'text-gray-500 hover:text-gray-700'} rounded-r-lg`}
+              className={`border-l border-gray-300 px-4 py-2 transition-colors ${
+                !following ? 'bg-blue-600 text-white' : 'bg-white text-gray-600 hover:bg-gray-50'
+              }`}
             >
               すべて
             </Link>
@@ -126,10 +130,10 @@ export default async function FeedPage({ searchParams }: PageProps) {
           <Link
             key={tab.value}
             href={tabHref(tab.value)}
-            className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
+            className={`rounded-full px-4 py-1.5 text-sm font-semibold transition-colors ${
               type === tab.value
-                ? 'bg-gray-900 text-white'
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                ? 'bg-gray-900 text-white shadow-sm'
+                : 'bg-white text-gray-600 ring-1 ring-gray-200 hover:bg-gray-50'
             }`}
           >
             {tab.label}
@@ -138,14 +142,14 @@ export default async function FeedPage({ searchParams }: PageProps) {
       </div>
 
       {initialArticles.length === 0 ? (
-        <div className="py-16 text-center">
-          <p className="text-gray-500">
-            {following ? 'フォロー中の企業の記事がまだありません。' : '記事がまだありません。'}
+        <div className="py-20 text-center">
+          <p className="mb-3 text-gray-500">
+            {following ? 'フォロー中の企業の記事がまだありません' : '記事がまだありません'}
           </p>
           {following && (
             <Link
               href="/discover"
-              className="mt-2 inline-block text-sm text-blue-600 hover:underline"
+              className="inline-flex items-center gap-1 rounded-full bg-blue-600 px-5 py-2 text-sm font-semibold text-white hover:bg-blue-700"
             >
               企業をフォローする →
             </Link>
