@@ -24,7 +24,7 @@ export default async function FeedPage({ searchParams }: PageProps) {
   const type: FeedType = typeParam === 'tech' || typeParam === 'press' ? typeParam : 'all'
 
   const session = await auth()
-  const userId = session?.user.id ?? null
+  const userId = session?.user?.id ?? null
   const following = followingParam !== 'false' && userId !== null
 
   let followedCompanyIds: string[] | null = null

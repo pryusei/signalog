@@ -35,7 +35,7 @@ export async function GET(request: NextRequest) {
   const cursor = cursorParam ? decodeCursor(cursorParam) : null
 
   const session = await auth()
-  const userId = session?.user.id ?? null
+  const userId = session?.user?.id ?? null
 
   // フォロー中フィルタ: ログイン済みかつ following=true のとき
   let followedCompanyIds: string[] | null = null

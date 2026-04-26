@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 
 import type { ArticleWithCompany } from '@/app/api/feed/route'
