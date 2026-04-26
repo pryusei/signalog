@@ -1,6 +1,15 @@
 {
   "name": "signalog",
   "version": "0.1.0",
+  "description": "気になる企業のテックブログとプレスリリースを、まとめてフォローできるプラットフォーム",
+  "homepage": "https://signalog-ebon.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pryusei/signalog.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pryusei/signalog/issues"
+  },
   "private": true,
   "scripts": {
     "dev": "next dev",
