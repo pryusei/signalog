@@ -20,7 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="ja" className={`${geist.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col bg-gray-50">
         <Header />
-        <main className="flex-1">{children}</main>
+        <div className="flex-1">{children}</div>
       </body>
     </html>
   )

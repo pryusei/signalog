@@ -2,11 +2,13 @@ import { signIn } from '@/lib/auth'
 
 export default function LoginPage() {
   return (
-    <div className="w-full max-w-sm rounded-2xl bg-white p-8 shadow-sm">
-      <h1 className="mb-2 text-center text-2xl font-bold text-gray-900">Signalog</h1>
-      <p className="mb-8 text-center text-sm text-gray-500">
-        企業のテックブログ・プレスリリースをまとめてフォロー
-      </p>
+    <div className="w-full max-w-sm rounded-2xl bg-white p-8 shadow-lg ring-1 ring-gray-200">
+      <div className="mb-8 text-center">
+        <p className="mb-1 text-3xl font-black tracking-tight text-gray-900">Signalog</p>
+        <p className="text-sm text-gray-500">
+          企業のテックブログ・プレスリリースをまとめてフォロー
+        </p>
+      </div>
 
       <div className="flex flex-col gap-3">
         <form
@@ -17,7 +19,7 @@ export default function LoginPage() {
         >
           <button
             type="submit"
-            className="flex w-full items-center justify-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50"
+            className="flex w-full items-center justify-center gap-3 rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm font-semibold text-gray-700 shadow-sm transition-colors hover:bg-gray-50 active:bg-gray-100"
           >
             <GoogleIcon />
             Google でログイン
@@ -32,13 +34,17 @@ export default function LoginPage() {
         >
           <button
             type="submit"
-            className="flex w-full items-center justify-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50"
+            className="flex w-full items-center justify-center gap-3 rounded-xl bg-gray-900 px-4 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-gray-800 active:bg-gray-700"
           >
             <GitHubIcon />
             GitHub でログイン
           </button>
         </form>
       </div>
+
+      <p className="mt-6 text-center text-xs text-gray-400">
+        ログインすることで利用規約とプライバシーポリシーに同意したものとみなします
+      </p>
     </div>
   )
 }
