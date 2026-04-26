@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { desc, eq, and } from 'drizzle-orm'
 
+import { CompanyLogo } from '@/components/CompanyLogo'
 import { FollowButton } from '@/components/FollowButton'
 import { ArticleCard } from '@/components/ArticleCard'
 import { auth } from '@/lib/auth'
@@ -32,7 +33,7 @@ export default async function CompanyPage({ params, searchParams }: PageProps) {
   if (!company) notFound()
 
   const session = await auth()
-  const userId = session?.user.id ?? null
+  const userId = session?.user?.id ?? null
 
   const [articleRows, followedRows] = await Promise.all([
     db
@@ -99,23 +100,12 @@ export default async function CompanyPage({ params, searchParams }: PageProps) {
 
       {/* Company header card */}
       <section className="border-sg-line bg-sg-surface mb-6 flex items-center gap-4 rounded-2xl border p-6">
-        {company.logoUrl ? (
-          /* eslint-disable-next-line @next/next/no-img-element */
-          <img
-            src={company.logoUrl}
-            alt={company.name}
-            width={56}
-            height={56}
-            className="h-14 w-14 shrink-0 rounded-xl object-contain"
-            onError={(e) => {
-              ;(e.currentTarget as HTMLImageElement).style.display = 'none'
-            }}
-          />
-        ) : (
-          <div className="bg-sg-accent-soft text-sg-accent-deep flex h-14 w-14 shrink-0 items-center justify-center rounded-xl text-lg font-black">
-            {company.name.slice(0, 2)}
-          </div>
-        )}
+        <CompanyLogo
+          name={company.name}
+          logoUrl={company.logoUrl}
+          imgClassName="h-14 w-14 shrink-0 rounded-xl object-contain"
+          tileClassName="bg-sg-accent-soft text-sg-accent-deep flex h-14 w-14 shrink-0 items-center justify-center rounded-xl text-lg font-black"
+        />
         <div className="min-w-0 flex-1">
           <h1 className="text-sg-ink text-xl font-black">{company.name}</h1>
           {company.description && (
