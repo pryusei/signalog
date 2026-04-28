@@ -39,6 +39,11 @@ async function processFeed(db: ReturnType<typeof createDb>, feed: CompanyFeed): 
 }
 
 async function main() {
+  if (!process.env.DATABASE_URL) {
+    console.error('[crawl] fatal: DATABASE_URL is not set. Add it to GitHub Secrets.')
+    process.exit(1)
+  }
+
   const start = Date.now()
   const db = createDb()
 
