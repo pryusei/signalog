@@ -41,8 +41,8 @@ export default async function DiscoverPage({ searchParams }: PageProps) {
   const followedSet = new Set(followedRows.map((f) => f.companyId))
 
   return (
-    <main className="mx-auto max-w-4xl px-6 py-8">
-      <h1 className="text-sg-ink mb-1 text-2xl font-black">企業を探す</h1>
+    <main className="mx-auto max-w-4xl px-4 py-6 md:px-6 md:py-8">
+      <h1 className="text-sg-ink mb-1 text-xl font-black md:text-2xl">企業を探す</h1>
       <p className="text-sg-ink-soft mb-6 text-sm">
         気になる企業をフォローしてフィードをカスタマイズしよう
       </p>

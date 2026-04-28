@@ -89,7 +89,7 @@ export default async function CompanyPage({ params, searchParams }: PageProps) {
   }
 
   return (
-    <main className="mx-auto max-w-2xl px-6 py-8">
+    <main className="mx-auto max-w-2xl px-4 py-6 md:px-6 md:py-8">
       {/* Back link */}
       <Link
         href="/discover"
@@ -99,7 +99,7 @@ export default async function CompanyPage({ params, searchParams }: PageProps) {
       </Link>
 
       {/* Company header card */}
-      <section className="border-sg-line bg-sg-surface mb-6 flex items-center gap-4 rounded-2xl border p-6">
+      <section className="border-sg-line bg-sg-surface mb-6 flex items-center gap-3 rounded-2xl border p-4 md:gap-4 md:p-6">
         <CompanyLogo
           name={company.name}
           logoUrl={company.logoUrl}
@@ -125,12 +125,12 @@ export default async function CompanyPage({ params, searchParams }: PageProps) {
       </section>
 
       {/* Tab filters */}
-      <div className="mb-5 flex gap-2">
+      <div className="mb-5 flex gap-2 overflow-x-auto pb-0.5">
         {tabs.map((tab) => (
           <Link
             key={tab.value}
             href={tabHref(tab.value)}
-            className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
+            className={`shrink-0 rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
               type === tab.value
                 ? 'bg-sg-accent-soft text-sg-accent-deep font-semibold'
                 : 'border-sg-line bg-sg-surface text-sg-ink-soft hover:bg-sg-line-soft border'
