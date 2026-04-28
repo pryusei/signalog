@@ -9,7 +9,7 @@ interface Props {
 export function Sidebar({ session }: Props) {
   const user = session?.user
   return (
-    <aside className="border-sg-line-soft bg-sg-surface flex w-[200px] shrink-0 flex-col border-r">
+    <aside className="border-sg-line-soft bg-sg-surface hidden w-[200px] shrink-0 flex-col border-r md:flex">
       <div className="text-sg-ink-faint px-4 pt-4 pb-2 text-[11px] font-semibold tracking-wider uppercase">
         メニュー
       </div>

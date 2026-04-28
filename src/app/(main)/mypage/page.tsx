@@ -31,9 +31,9 @@ export default async function MyPage() {
   const initial = (user.name ?? user.email ?? '?')[0].toUpperCase()
 
   return (
-    <main className="mx-auto max-w-2xl px-6 py-8">
+    <main className="mx-auto max-w-2xl px-4 py-6 md:px-6 md:py-8">
       {/* Profile card */}
-      <section className="border-sg-line bg-sg-surface mb-6 flex items-center gap-4 rounded-2xl border p-6">
+      <section className="border-sg-line bg-sg-surface mb-6 flex items-center gap-3 rounded-2xl border p-4 md:gap-4 md:p-6">
         <div className="bg-sg-accent flex h-16 w-16 shrink-0 items-center justify-center rounded-full text-2xl font-black text-white">
           {initial}
         </div>

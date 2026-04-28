@@ -100,32 +100,35 @@ export default async function FeedPage({ searchParams }: PageProps) {
   }
 
   return (
-    <main className="mx-auto max-w-2xl px-6 py-8">
-      <h1 className="text-sg-ink mb-1 text-2xl font-black">フィード</h1>
+    <main className="mx-auto max-w-2xl px-4 py-6 md:px-6 md:py-8">
+      <h1 className="text-sg-ink mb-1 text-xl font-black md:text-2xl">フィード</h1>
       {userId && (
         <p className="text-sg-ink-soft mb-5 text-sm">
           {following ? 'フォロー中の企業の最新情報' : 'すべての企業の最新情報'}
         </p>
       )}
 
-      {/* Type filter chips */}
-      <div className="mb-4 flex flex-wrap items-center gap-2">
-        {feedTabs.map((tab) => (
-          <Link
-            key={tab.value}
-            href={tabHref(tab.value)}
-            className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
-              type === tab.value
-                ? 'bg-sg-accent-soft text-sg-accent-deep font-semibold'
-                : 'border-sg-line bg-sg-surface text-sg-ink-soft hover:bg-sg-line-soft border'
-            }`}
-          >
-            {tab.label}
-          </Link>
-        ))}
+      {/* Filters */}
+      <div className="mb-4 flex flex-col gap-2">
+        {/* Type filter chips */}
+        <div className="flex gap-2 overflow-x-auto pb-0.5">
+          {feedTabs.map((tab) => (
+            <Link
+              key={tab.value}
+              href={tabHref(tab.value)}
+              className={`shrink-0 rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
+                type === tab.value
+                  ? 'bg-sg-accent-soft text-sg-accent-deep font-semibold'
+                  : 'border-sg-line bg-sg-surface text-sg-ink-soft hover:bg-sg-line-soft border'
+              }`}
+            >
+              {tab.label}
+            </Link>
+          ))}
+        </div>
         {/* Following toggle */}
         {userId && (
-          <div className="ml-auto flex gap-1">
+          <div className="flex justify-end gap-1">
             <Link
               href={`/feed?${new URLSearchParams({ ...(type !== 'all' ? { type } : {}) })}`}
               className={`rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
