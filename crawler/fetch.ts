@@ -16,12 +16,10 @@ export interface FeedItem {
 export async function fetchRssFeed(feedUrl: string): Promise<FeedItem[]> {
   const feed = await parser.parseURL(feedUrl)
   return feed.items
-    .filter((item): item is Parser.Item & { title: string; link: string; pubDate: string } =>
-      Boolean(item.title && item.link && item.pubDate),
-    )
+    .filter((item) => Boolean(item.title && item.link && (item.pubDate ?? item.isoDate)))
     .map((item) => ({
-      title: item.title,
-      link: item.link,
-      pubDate: item.pubDate,
+      title: item.title!,
+      link: item.link!,
+      pubDate: (item.pubDate ?? item.isoDate)!,
     }))
 }
