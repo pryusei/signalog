@@ -170,6 +170,7 @@ export default async function FeedPage({ searchParams }: PageProps) {
       ) : (
         <Suspense>
           <FeedInfiniteScroll
+            key={`${type}-${following}`}
             initialArticles={initialArticles}
             initialNextCursor={initialNextCursor}
             type={type}
