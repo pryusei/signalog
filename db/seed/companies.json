@@ -3,434 +3,679 @@
     "slug": "mercari",
     "name": "メルカリ",
     "domain": "mercari.com",
-    "logo_url": "https://logo.clearbit.com/mercari.com",
+    "logo_url": "https://www.google.com/s2/favicons?domain=mercari.com&sz=128",
     "description": "フリマアプリ「メルカリ」を運営するテクノロジー企業",
     "feeds": [
-      { "feed_url": "https://engineering.mercari.com/blog/feed.xml", "feed_type": "tech" },
-      { "feed_url": "https://prtimes.jp/companyrdf.php?company_id=26386", "feed_type": "press" }
+      {
+        "feed_url": "https://engineering.mercari.com/blog/feed.xml",
+        "feed_type": "tech"
+      },
+      {
+        "feed_url": "https://prtimes.jp/companyrdf.php?company_id=26386",
+        "feed_type": "press"
+      }
     ]
   },
   {
     "slug": "cookpad",
     "name": "クックパッド",
     "domain": "cookpad.com",
-    "logo_url": "https://logo.clearbit.com/cookpad.com",
+    "logo_url": "https://www.google.com/s2/favicons?domain=cookpad.com&sz=128",
     "description": "料理レシピサービス「クックパッド」を運営",
     "feeds": [
-      { "feed_url": "https://techlife.cookpad.com/feed", "feed_type": "tech" },
-      { "feed_url": "https://prtimes.jp/companyrdf.php?company_id=27849", "feed_type": "press" }
+      {
+        "feed_url": "https://techlife.cookpad.com/feed",
+        "feed_type": "tech"
+      },
+      {
+        "feed_url": "https://prtimes.jp/companyrdf.php?company_id=27849",
+        "feed_type": "press"
+      }
     ]
   },
   {
     "slug": "smarthr",
     "name": "SmartHR",
     "domain": "smarthr.jp",
-    "logo_url": "https://logo.clearbit.com/smarthr.jp",
+    "logo_url": "https://www.google.com/s2/favicons?domain=smarthr.jp&sz=128",
     "description": "クラウド人事労務ソフト「SmartHR」を提供",
     "feeds": [
-      { "feed_url": "https://tech.smarthr.jp/feed", "feed_type": "tech" },
-      { "feed_url": "https://prtimes.jp/companyrdf.php?company_id=15987", "feed_type": "press" }
+      {
+        "feed_url": "https://tech.smarthr.jp/feed",
+        "feed_type": "tech"
+      },
+      {
+        "feed_url": "https://prtimes.jp/companyrdf.php?company_id=15987",
+        "feed_type": "press"
+      }
     ]
   },
   {
     "slug": "freee",
     "name": "freee",
     "domain": "freee.co.jp",
-    "logo_url": "https://logo.clearbit.com/freee.co.jp",
+    "logo_url": "https://www.google.com/s2/favicons?domain=freee.co.jp&sz=128",
     "description": "クラウド会計・人事労務ソフト「freee」を提供",
     "feeds": [
-      { "feed_url": "https://developers.freee.co.jp/feed", "feed_type": "tech" },
-      { "feed_url": "https://prtimes.jp/companyrdf.php?company_id=6428", "feed_type": "press" }
+      {
+        "feed_url": "https://developers.freee.co.jp/feed",
+        "feed_type": "tech"
+      },
+      {
+        "feed_url": "https://prtimes.jp/companyrdf.php?company_id=6428",
+        "feed_type": "press"
+      }
     ]
   },
   {
     "slug": "sansan",
     "name": "Sansan",
     "domain": "sansan.com",
-    "logo_url": "https://logo.clearbit.com/sansan.com",
+    "logo_url": "https://www.google.com/s2/favicons?domain=sansan.com&sz=128",
     "description": "クラウド名刺管理サービス「Sansan」を提供",
     "feeds": [
-      { "feed_url": "https://buildersbox.corp-sansan.com/feed", "feed_type": "tech" },
-      { "feed_url": "https://prtimes.jp/companyrdf.php?company_id=49627", "feed_type": "press" }
+      {
+        "feed_url": "https://buildersbox.corp-sansan.com/feed",
+        "feed_type": "tech"
+      },
+      {
+        "feed_url": "https://prtimes.jp/companyrdf.php?company_id=49627",
+        "feed_type": "press"
+      }
     ]
   },
   {
     "slug": "chatwork",
     "name": "Chatwork",
     "domain": "chatwork.com",
-    "logo_url": "https://logo.clearbit.com/chatwork.com",
+    "logo_url": "https://www.google.com/s2/favicons?domain=chatwork.com&sz=128",
     "description": "ビジネスチャット「Chatwork」を提供",
     "feeds": [
-      { "feed_url": "https://creators-note.chatwork.com/feed", "feed_type": "tech" },
-      { "feed_url": "https://prtimes.jp/companyrdf.php?company_id=13602", "feed_type": "press" }
+      {
+        "feed_url": "https://creators-note.chatwork.com/feed",
+        "feed_type": "tech"
+      },
+      {
+        "feed_url": "https://prtimes.jp/companyrdf.php?company_id=13602",
+        "feed_type": "press"
+      }
     ]
   },
   {
     "slug": "dena",
     "name": "DeNA",
     "domain": "dena.com",
-    "logo_url": "https://logo.clearbit.com/dena.com",
+    "logo_url": "https://www.google.com/s2/favicons?domain=dena.com&sz=128",
     "description": "エンターテインメント・ヘルスケア事業を展開",
     "feeds": [
-      { "feed_url": "https://engineer.dena.com/feed", "feed_type": "tech" },
-      { "feed_url": "https://prtimes.jp/companyrdf.php?company_id=13971", "feed_type": "press" }
+      {
+        "feed_url": "https://engineer.dena.com/feed",
+        "feed_type": "tech"
+      },
+      {
+        "feed_url": "https://prtimes.jp/companyrdf.php?company_id=13971",
+        "feed_type": "press"
+      }
     ]
   },
   {
     "slug": "gree",
     "name": "GREE",
     "domain": "gree.net",
-    "logo_url": "https://logo.clearbit.com/gree.net",
+    "logo_url": "https://www.google.com/s2/favicons?domain=gree.net&sz=128",
     "description": "モバイルゲーム・インターネット事業を展開",
     "feeds": [
-      { "feed_url": "https://labs.gree.jp/blog/feed/", "feed_type": "tech" },
-      { "feed_url": "https://prtimes.jp/companyrdf.php?company_id=21973", "feed_type": "press" }
+      {
+        "feed_url": "https://labs.gree.jp/blog/feed/",
+        "feed_type": "tech"
+      },
+      {
+        "feed_url": "https://prtimes.jp/companyrdf.php?company_id=21973",
+        "feed_type": "press"
+      }
     ]
   },
   {
     "slug": "cyberagent",
     "name": "サイバーエージェント",
     "domain": "cyberagent.co.jp",
-    "logo_url": "https://logo.clearbit.com/cyberagent.co.jp",
+    "logo_url": "https://www.google.com/s2/favicons?domain=cyberagent.co.jp&sz=128",
     "description": "「Ameba」「AbemaTV」などを運営するインターネット企業",
     "feeds": [
-      { "feed_url": "https://developers.cyberagent.co.jp/blog/feed/", "feed_type": "tech" },
-      { "feed_url": "https://prtimes.jp/companyrdf.php?company_id=152654", "feed_type": "press" }
+      {
+        "feed_url": "https://developers.cyberagent.co.jp/blog/feed/",
+        "feed_type": "tech"
+      },
+      {
+        "feed_url": "https://prtimes.jp/companyrdf.php?company_id=152654",
+        "feed_type": "press"
+      }
     ]
   },
   {
     "slug": "mixi",
     "name": "MIXI",
     "domain": "mixi.co.jp",
-    "logo_url": "https://logo.clearbit.com/mixi.co.jp",
+    "logo_url": "https://www.google.com/s2/favicons?domain=mixi.co.jp&sz=128",
     "description": "「モンスターストライク」などゲーム・SNS事業を展開",
     "feeds": [
-      { "feed_url": "https://zenn.dev/p/mixi/feed", "feed_type": "tech" },
-      { "feed_url": "https://prtimes.jp/companyrdf.php?company_id=25121", "feed_type": "press" }
+      {
+        "feed_url": "https://zenn.dev/p/mixi/feed",
+        "feed_type": "tech"
+      },
+      {
+        "feed_url": "https://prtimes.jp/companyrdf.php?company_id=25121",
+        "feed_type": "press"
+      }
     ]
   },
   {
     "slug": "recruit",
     "name": "リクルート",
     "domain": "recruit.co.jp",
-    "logo_url": "https://logo.clearbit.com/recruit.co.jp",
+    "logo_url": "https://www.google.com/s2/favicons?domain=recruit.co.jp&sz=128",
     "description": "HR・マーケティング・ライフスタイルの情報サービスを提供",
     "feeds": [
-      { "feed_url": "https://blog.recruit.co.jp/rtc/feed", "feed_type": "tech" },
-      { "feed_url": "https://prtimes.jp/companyrdf.php?company_id=11414", "feed_type": "press" }
+      {
+        "feed_url": "https://blog.recruit.co.jp/rtc/feed",
+        "feed_type": "tech"
+      },
+      {
+        "feed_url": "https://prtimes.jp/companyrdf.php?company_id=11414",
+        "feed_type": "press"
+      }
     ]
   },
   {
     "slug": "money-forward",
     "name": "マネーフォワード",
     "domain": "moneyforward.com",
-    "logo_url": "https://logo.clearbit.com/moneyforward.com",
+    "logo_url": "https://www.google.com/s2/favicons?domain=moneyforward.com&sz=128",
     "description": "家計簿・会計ソフト「マネーフォワード」を提供",
     "feeds": [
-      { "feed_url": "https://moneyforward-dev.jp/feed", "feed_type": "tech" },
-      { "feed_url": "https://prtimes.jp/companyrdf.php?company_id=8962", "feed_type": "press" }
+      {
+        "feed_url": "https://moneyforward-dev.jp/feed",
+        "feed_type": "tech"
+      },
+      {
+        "feed_url": "https://prtimes.jp/companyrdf.php?company_id=8962",
+        "feed_type": "press"
+      }
     ]
   },
   {
     "slug": "zozo",
     "name": "ZOZO",
     "domain": "zozo.jp",
-    "logo_url": "https://logo.clearbit.com/zozo.jp",
+    "logo_url": "https://www.google.com/s2/favicons?domain=zozo.jp&sz=128",
     "description": "ファッション通販サイト「ZOZOTOWN」を運営",
     "feeds": [
-      { "feed_url": "https://techblog.zozo.com/feed", "feed_type": "tech" },
-      { "feed_url": "https://prtimes.jp/companyrdf.php?company_id=96287", "feed_type": "press" }
+      {
+        "feed_url": "https://techblog.zozo.com/feed",
+        "feed_type": "tech"
+      },
+      {
+        "feed_url": "https://prtimes.jp/companyrdf.php?company_id=96287",
+        "feed_type": "press"
+      }
     ]
   },
   {
     "slug": "layerx",
     "name": "LayerX",
     "domain": "layerx.co.jp",
-    "logo_url": "https://logo.clearbit.com/layerx.co.jp",
+    "logo_url": "https://www.google.com/s2/favicons?domain=layerx.co.jp&sz=128",
     "description": "バクラク事業などフィンテック・エンタープライズSaaSを展開",
     "feeds": [
-      { "feed_url": "https://tech.layerx.co.jp/feed", "feed_type": "tech" },
-      { "feed_url": "https://prtimes.jp/companyrdf.php?company_id=36528", "feed_type": "press" }
+      {
+        "feed_url": "https://tech.layerx.co.jp/feed",
+        "feed_type": "tech"
+      },
+      {
+        "feed_url": "https://prtimes.jp/companyrdf.php?company_id=36528",
+        "feed_type": "press"
+      }
     ]
   },
   {
     "slug": "timee",
     "name": "タイミー",
     "domain": "timee.co.jp",
-    "logo_url": "https://logo.clearbit.com/timee.co.jp",
+    "logo_url": "https://www.google.com/s2/favicons?domain=timee.co.jp&sz=128",
     "description": "スキマバイトサービス「タイミー」を運営",
     "feeds": [
-      { "feed_url": "https://tech.timee.co.jp/feed", "feed_type": "tech" },
-      { "feed_url": "https://prtimes.jp/companyrdf.php?company_id=36375", "feed_type": "press" }
+      {
+        "feed_url": "https://tech.timee.co.jp/feed",
+        "feed_type": "tech"
+      },
+      {
+        "feed_url": "https://prtimes.jp/companyrdf.php?company_id=36375",
+        "feed_type": "press"
+      }
     ]
   },
   {
     "slug": "nulab",
     "name": "ヌーラボ",
     "domain": "nulab.com",
-    "logo_url": "https://logo.clearbit.com/nulab.com",
+    "logo_url": "https://www.google.com/s2/favicons?domain=nulab.com&sz=128",
     "description": "「Backlog」「Cacoo」などプロジェクト管理ツールを提供",
     "feeds": [
-      { "feed_url": "https://nulab.com/ja/blog/feed/", "feed_type": "tech" },
-      { "feed_url": "https://prtimes.jp/companyrdf.php?company_id=25423", "feed_type": "press" }
+      {
+        "feed_url": "https://nulab.com/ja/blog/feed/",
+        "feed_type": "tech"
+      },
+      {
+        "feed_url": "https://prtimes.jp/companyrdf.php?company_id=25423",
+        "feed_type": "press"
+      }
     ]
   },
   {
     "slug": "classmethod",
     "name": "クラスメソッド",
     "domain": "classmethod.jp",
-    "logo_url": "https://logo.clearbit.com/classmethod.jp",
+    "logo_url": "https://www.google.com/s2/favicons?domain=classmethod.jp&sz=128",
     "description": "AWSなどクラウドインテグレーションを提供するITコンサルティング企業",
     "feeds": [
-      { "feed_url": "https://dev.classmethod.jp/feed/", "feed_type": "tech" },
-      { "feed_url": "https://prtimes.jp/companyrdf.php?company_id=14901", "feed_type": "press" }
+      {
+        "feed_url": "https://dev.classmethod.jp/feed/",
+        "feed_type": "tech"
+      },
+      {
+        "feed_url": "https://prtimes.jp/companyrdf.php?company_id=14901",
+        "feed_type": "press"
+      }
     ]
   },
   {
     "slug": "base",
     "name": "BASE",
     "domain": "thebase.com",
-    "logo_url": "https://logo.clearbit.com/thebase.com",
+    "logo_url": "https://www.google.com/s2/favicons?domain=thebase.com&sz=128",
     "description": "ネットショップ作成サービス「BASE」を運営",
     "feeds": [
-      { "feed_url": "https://devblog.thebase.in/feed", "feed_type": "tech" },
-      { "feed_url": "https://prtimes.jp/companyrdf.php?company_id=30814", "feed_type": "press" }
+      {
+        "feed_url": "https://devblog.thebase.in/feed",
+        "feed_type": "tech"
+      },
+      {
+        "feed_url": "https://prtimes.jp/companyrdf.php?company_id=30814",
+        "feed_type": "press"
+      }
     ]
   },
   {
     "slug": "retty",
     "name": "Retty",
     "domain": "retty.me",
-    "logo_url": "https://logo.clearbit.com/retty.me",
+    "logo_url": "https://www.google.com/s2/favicons?domain=retty.me&sz=128",
     "description": "実名グルメSNS「Retty」を運営",
     "feeds": [
-      { "feed_url": "https://engineer.retty.me/feed", "feed_type": "tech" },
-      { "feed_url": "https://prtimes.jp/companyrdf.php?company_id=4025", "feed_type": "press" }
+      {
+        "feed_url": "https://engineer.retty.me/feed",
+        "feed_type": "tech"
+      },
+      {
+        "feed_url": "https://prtimes.jp/companyrdf.php?company_id=4025",
+        "feed_type": "press"
+      }
     ]
   },
   {
     "slug": "cybozu",
     "name": "サイボウズ",
     "domain": "cybozu.co.jp",
-    "logo_url": "https://logo.clearbit.com/cybozu.co.jp",
+    "logo_url": "https://www.google.com/s2/favicons?domain=cybozu.co.jp&sz=128",
     "description": "グループウェア「kintone」「Garoon」などを提供",
     "feeds": [
-      { "feed_url": "https://blog.cybozu.io/feed", "feed_type": "tech" },
-      { "feed_url": "https://prtimes.jp/companyrdf.php?company_id=27677", "feed_type": "press" }
+      {
+        "feed_url": "https://blog.cybozu.io/feed",
+        "feed_type": "tech"
+      },
+      {
+        "feed_url": "https://prtimes.jp/companyrdf.php?company_id=27677",
+        "feed_type": "press"
+      }
     ]
   },
   {
     "slug": "kayac",
     "name": "カヤック",
     "domain": "kayac.com",
-    "logo_url": "https://logo.clearbit.com/kayac.com",
+    "logo_url": "https://www.google.com/s2/favicons?domain=kayac.com&sz=128",
     "description": "Webサービス・ゲームの企画・開発・運営を行うIT企業",
     "feeds": [
-      { "feed_url": "https://techblog.kayac.com/feed", "feed_type": "tech" },
-      { "feed_url": "https://prtimes.jp/companyrdf.php?company_id=14685", "feed_type": "press" }
+      {
+        "feed_url": "https://techblog.kayac.com/feed",
+        "feed_type": "tech"
+      },
+      {
+        "feed_url": "https://prtimes.jp/companyrdf.php?company_id=14685",
+        "feed_type": "press"
+      }
     ]
   },
   {
     "slug": "wantedly",
     "name": "Wantedly",
     "domain": "wantedly.com",
-    "logo_url": "https://logo.clearbit.com/wantedly.com",
+    "logo_url": "https://www.google.com/s2/favicons?domain=wantedly.com&sz=128",
     "description": "ビジョンでつながる採用サービス「Wantedly」を運営",
     "feeds": [
-      { "feed_url": "https://medium.com/feed/wantedly-engineering", "feed_type": "tech" },
-      { "feed_url": "https://prtimes.jp/companyrdf.php?company_id=21198", "feed_type": "press" }
+      {
+        "feed_url": "https://medium.com/feed/wantedly-engineering",
+        "feed_type": "tech"
+      },
+      {
+        "feed_url": "https://prtimes.jp/companyrdf.php?company_id=21198",
+        "feed_type": "press"
+      }
     ]
   },
   {
     "slug": "medley",
     "name": "メドレー",
     "domain": "medley.jp",
-    "logo_url": "https://logo.clearbit.com/medley.jp",
+    "logo_url": "https://www.google.com/s2/favicons?domain=medley.jp&sz=128",
     "description": "医療・介護・福祉の人材採用サービスを提供",
     "feeds": [
-      { "feed_url": "https://zenn.dev/p/medley/feed", "feed_type": "tech" },
-      { "feed_url": "https://prtimes.jp/companyrdf.php?company_id=13108", "feed_type": "press" }
+      {
+        "feed_url": "https://zenn.dev/p/medley/feed",
+        "feed_type": "tech"
+      },
+      {
+        "feed_url": "https://prtimes.jp/companyrdf.php?company_id=13108",
+        "feed_type": "press"
+      }
     ]
   },
   {
     "slug": "akatsuki",
     "name": "アカツキ",
     "domain": "aktsk.jp",
-    "logo_url": "https://logo.clearbit.com/aktsk.jp",
+    "logo_url": "https://www.google.com/s2/favicons?domain=aktsk.jp&sz=128",
     "description": "モバイルゲーム・エンターテインメント事業を展開",
-    "feeds": [{ "feed_url": "https://hackerslab.aktsk.jp/feed", "feed_type": "tech" }]
+    "feeds": [
+      {
+        "feed_url": "https://hackerslab.aktsk.jp/feed",
+        "feed_type": "tech"
+      }
+    ]
   },
   {
     "slug": "carta",
     "name": "CARTA HOLDINGS",
     "domain": "cartaholdings.co.jp",
-    "logo_url": "https://logo.clearbit.com/cartaholdings.co.jp",
+    "logo_url": "https://www.google.com/s2/favicons?domain=cartaholdings.co.jp&sz=128",
     "description": "デジタルマーケティング事業を展開",
-    "feeds": [{ "feed_url": "https://techblog.cartaholdings.co.jp/feed", "feed_type": "tech" }]
+    "feeds": [
+      {
+        "feed_url": "https://techblog.cartaholdings.co.jp/feed",
+        "feed_type": "tech"
+      }
+    ]
   },
   {
     "slug": "brainpad",
     "name": "ブレインパッド",
     "domain": "brainpad.co.jp",
-    "logo_url": "https://logo.clearbit.com/brainpad.co.jp",
+    "logo_url": "https://www.google.com/s2/favicons?domain=brainpad.co.jp&sz=128",
     "description": "データ活用・AIによる課題解決を支援するコンサルティング企業",
-    "feeds": [{ "feed_url": "https://blog.brainpad.co.jp/feed", "feed_type": "tech" }]
+    "feeds": [
+      {
+        "feed_url": "https://blog.brainpad.co.jp/feed",
+        "feed_type": "tech"
+      }
+    ]
   },
   {
     "slug": "speee",
     "name": "Speee",
     "domain": "speee.jp",
-    "logo_url": "https://logo.clearbit.com/speee.jp",
+    "logo_url": "https://www.google.com/s2/favicons?domain=speee.jp&sz=128",
     "description": "DX事業・不動産テックなどを展開するテクノロジー企業",
-    "feeds": [{ "feed_url": "https://tech.speee.jp/feed", "feed_type": "tech" }]
+    "feeds": [
+      {
+        "feed_url": "https://tech.speee.jp/feed",
+        "feed_type": "tech"
+      }
+    ]
   },
   {
     "slug": "yumemi",
     "name": "ゆめみ",
     "domain": "yumemi.co.jp",
-    "logo_url": "https://logo.clearbit.com/yumemi.co.jp",
+    "logo_url": "https://www.google.com/s2/favicons?domain=yumemi.co.jp&sz=128",
     "description": "モバイルアプリ・Webサービス開発のプロフェッショナル集団",
-    "feeds": [{ "feed_url": "https://zenn.dev/p/yumemi_inc/feed", "feed_type": "tech" }]
+    "feeds": [
+      {
+        "feed_url": "https://zenn.dev/p/yumemi_inc/feed",
+        "feed_type": "tech"
+      }
+    ]
   },
   {
     "slug": "ubie",
     "name": "Ubie",
     "domain": "ubie.app",
-    "logo_url": "https://logo.clearbit.com/ubie.app",
+    "logo_url": "https://www.google.com/s2/favicons?domain=ubie.app&sz=128",
     "description": "AI問診サービス「ユビー」を提供するヘルステック企業",
     "feeds": [
-      { "feed_url": "https://zenn.dev/p/ubie_dev/feed", "feed_type": "tech" },
-      { "feed_url": "https://prtimes.jp/companyrdf.php?company_id=48083", "feed_type": "press" }
+      {
+        "feed_url": "https://zenn.dev/p/ubie_dev/feed",
+        "feed_type": "tech"
+      },
+      {
+        "feed_url": "https://prtimes.jp/companyrdf.php?company_id=48083",
+        "feed_type": "press"
+      }
     ]
   },
   {
     "slug": "plaid",
     "name": "Plaid",
     "domain": "plaid.co.jp",
-    "logo_url": "https://logo.clearbit.com/plaid.co.jp",
+    "logo_url": "https://www.google.com/s2/favicons?domain=plaid.co.jp&sz=128",
     "description": "CXプラットフォーム「KARTE」を提供",
     "feeds": [
-      { "feed_url": "https://tech.plaid.co.jp/rss.xml", "feed_type": "tech" },
-      { "feed_url": "https://prtimes.jp/companyrdf.php?company_id=10620", "feed_type": "press" }
+      {
+        "feed_url": "https://tech.plaid.co.jp/rss.xml",
+        "feed_type": "tech"
+      },
+      {
+        "feed_url": "https://prtimes.jp/companyrdf.php?company_id=10620",
+        "feed_type": "press"
+      }
     ]
   },
   {
     "slug": "mobility-technologies",
     "name": "Mobility Technologies",
     "domain": "mo-t.com",
-    "logo_url": "https://logo.clearbit.com/mo-t.com",
+    "logo_url": "https://www.google.com/s2/favicons?domain=mo-t.com&sz=128",
     "description": "タクシーアプリ「GO」を提供するモビリティ企業",
-    "feeds": [{ "feed_url": "https://lab.mo-t.com/rss", "feed_type": "tech" }]
+    "feeds": [
+      {
+        "feed_url": "https://lab.mo-t.com/rss",
+        "feed_type": "tech"
+      }
+    ]
   },
   {
     "slug": "biglobe",
     "name": "BIGLOBE",
     "domain": "biglobe.co.jp",
-    "logo_url": "https://logo.clearbit.com/biglobe.co.jp",
+    "logo_url": "https://www.google.com/s2/favicons?domain=biglobe.co.jp&sz=128",
     "description": "インターネットプロバイダー・クラウドサービスを提供",
-    "feeds": [{ "feed_url": "https://note.com/biglobe/rss", "feed_type": "tech" }]
+    "feeds": [
+      {
+        "feed_url": "https://note.com/biglobe/rss",
+        "feed_type": "tech"
+      }
+    ]
   },
   {
     "slug": "gmo-internet",
     "name": "GMOインターネット",
     "domain": "gmo.jp",
-    "logo_url": "https://logo.clearbit.com/gmo.jp",
+    "logo_url": "https://www.google.com/s2/favicons?domain=gmo.jp&sz=128",
     "description": "インターネットインフラ・金融・セキュリティ事業を展開",
     "feeds": [
-      { "feed_url": "https://developers.gmo.jp/feed", "feed_type": "tech" },
-      { "feed_url": "https://prtimes.jp/companyrdf.php?company_id=136", "feed_type": "press" }
+      {
+        "feed_url": "https://developers.gmo.jp/feed",
+        "feed_type": "tech"
+      },
+      {
+        "feed_url": "https://prtimes.jp/companyrdf.php?company_id=136",
+        "feed_type": "press"
+      }
     ]
   },
   {
     "slug": "rakuten",
     "name": "楽天グループ",
     "domain": "rakuten.co.jp",
-    "logo_url": "https://logo.clearbit.com/rakuten.co.jp",
+    "logo_url": "https://www.google.com/s2/favicons?domain=rakuten.co.jp&sz=128",
     "description": "EC・金融・通信など多様なサービスを展開するIT企業",
     "feeds": [
-      { "feed_url": "https://zenn.dev/p/rakuten_tech/feed", "feed_type": "tech" },
-      { "feed_url": "https://prtimes.jp/companyrdf.php?company_id=5889", "feed_type": "press" }
+      {
+        "feed_url": "https://zenn.dev/p/rakuten_tech/feed",
+        "feed_type": "tech"
+      },
+      {
+        "feed_url": "https://prtimes.jp/companyrdf.php?company_id=5889",
+        "feed_type": "press"
+      }
     ]
   },
   {
     "slug": "ntt-communications",
     "name": "NTTコミュニケーションズ",
     "domain": "ntt.com",
-    "logo_url": "https://logo.clearbit.com/ntt.com",
+    "logo_url": "https://www.google.com/s2/favicons?domain=ntt.com&sz=128",
     "description": "法人向けICTソリューションを提供するNTTグループ企業",
-    "feeds": [{ "feed_url": "https://engineers.ntt.com/feed", "feed_type": "tech" }]
+    "feeds": [
+      {
+        "feed_url": "https://engineers.ntt.com/feed",
+        "feed_type": "tech"
+      }
+    ]
   },
   {
     "slug": "softbank",
     "name": "ソフトバンク",
     "domain": "softbank.jp",
-    "logo_url": "https://logo.clearbit.com/softbank.jp",
+    "logo_url": "https://www.google.com/s2/favicons?domain=softbank.jp&sz=128",
     "description": "通信・インターネット・AI事業を展開",
     "feeds": [
-      { "feed_url": "https://zenn.dev/p/softbank/feed", "feed_type": "tech" },
-      { "feed_url": "https://prtimes.jp/companyrdf.php?company_id=13746", "feed_type": "press" }
+      {
+        "feed_url": "https://zenn.dev/p/softbank/feed",
+        "feed_type": "tech"
+      },
+      {
+        "feed_url": "https://prtimes.jp/companyrdf.php?company_id=13746",
+        "feed_type": "press"
+      }
     ]
   },
   {
     "slug": "docomo",
     "name": "NTTドコモ",
     "domain": "docomo.ne.jp",
-    "logo_url": "https://logo.clearbit.com/docomo.ne.jp",
+    "logo_url": "https://www.google.com/s2/favicons?domain=docomo.ne.jp&sz=128",
     "description": "国内最大の携帯電話事業者、NTTグループ企業",
     "feeds": [
-      { "feed_url": "https://nttdocomo-developers.jp/feed", "feed_type": "tech" },
-      { "feed_url": "https://prtimes.jp/companyrdf.php?company_id=32030", "feed_type": "press" }
+      {
+        "feed_url": "https://nttdocomo-developers.jp/feed",
+        "feed_type": "tech"
+      },
+      {
+        "feed_url": "https://prtimes.jp/companyrdf.php?company_id=32030",
+        "feed_type": "press"
+      }
     ]
   },
   {
     "slug": "gunosy",
     "name": "Gunosy",
     "domain": "gunosy.co.jp",
-    "logo_url": "https://logo.clearbit.com/gunosy.co.jp",
+    "logo_url": "https://www.google.com/s2/favicons?domain=gunosy.co.jp&sz=128",
     "description": "ニュースアプリ「グノシー」「ニュースパス」を運営",
     "feeds": [
-      { "feed_url": "https://tech.gunosy.io/feed", "feed_type": "tech" },
-      { "feed_url": "https://prtimes.jp/companyrdf.php?company_id=31854", "feed_type": "press" }
+      {
+        "feed_url": "https://tech.gunosy.io/feed",
+        "feed_type": "tech"
+      },
+      {
+        "feed_url": "https://prtimes.jp/companyrdf.php?company_id=31854",
+        "feed_type": "press"
+      }
     ]
   },
   {
     "slug": "herp",
     "name": "HERP",
     "domain": "herp.careers",
-    "logo_url": "https://logo.clearbit.com/herp.careers",
+    "logo_url": "https://www.google.com/s2/favicons?domain=herp.careers&sz=128",
     "description": "採用管理システム「HERP Hire」を提供するHRテック企業",
-    "feeds": [{ "feed_url": "https://zenn.dev/p/herp_inc/feed", "feed_type": "tech" }]
+    "feeds": [
+      {
+        "feed_url": "https://zenn.dev/p/herp_inc/feed",
+        "feed_type": "tech"
+      }
+    ]
   },
   {
     "slug": "leaner",
     "name": "Leaner Technologies",
     "domain": "leaner.jp",
-    "logo_url": "https://logo.clearbit.com/leaner.jp",
+    "logo_url": "https://www.google.com/s2/favicons?domain=leaner.jp&sz=128",
     "description": "購買DXクラウド「Leaner調達」を提供するスタートアップ",
-    "feeds": [{ "feed_url": "https://note.com/leaner/rss", "feed_type": "tech" }]
+    "feeds": [
+      {
+        "feed_url": "https://note.com/leaner/rss",
+        "feed_type": "tech"
+      }
+    ]
   },
   {
     "slug": "smartbank",
     "name": "スマートバンク",
     "domain": "smartbank.co.jp",
-    "logo_url": "https://logo.clearbit.com/smartbank.co.jp",
+    "logo_url": "https://www.google.com/s2/favicons?domain=smartbank.co.jp&sz=128",
     "description": "家計簿プリカ「B/43」を提供するフィンテック企業",
-    "feeds": [{ "feed_url": "https://blog.smartbank.co.jp/feed", "feed_type": "tech" }]
+    "feeds": [
+      {
+        "feed_url": "https://blog.smartbank.co.jp/feed",
+        "feed_type": "tech"
+      }
+    ]
   },
   {
     "slug": "hacomono",
     "name": "hacomono",
     "domain": "hacomono.jp",
-    "logo_url": "https://logo.clearbit.com/hacomono.jp",
+    "logo_url": "https://www.google.com/s2/favicons?domain=hacomono.jp&sz=128",
     "description": "ウェルネス産業向け店舗運営プラットフォームを提供",
-    "feeds": [{ "feed_url": "https://techblog.hacomono.jp/feed", "feed_type": "tech" }]
+    "feeds": [
+      {
+        "feed_url": "https://techblog.hacomono.jp/feed",
+        "feed_type": "tech"
+      }
+    ]
   },
   {
     "slug": "helpfeel",
     "name": "Helpfeel",
     "domain": "helpfeel.com",
-    "logo_url": "https://logo.clearbit.com/helpfeel.com",
+    "logo_url": "https://www.google.com/s2/favicons?domain=helpfeel.com&sz=128",
     "description": "「Helpfeel」などナレッジ管理ツールを提供",
-    "feeds": [{ "feed_url": "https://zenn.dev/p/helpfeel/feed", "feed_type": "tech" }]
+    "feeds": [
+      {
+        "feed_url": "https://zenn.dev/p/helpfeel/feed",
+        "feed_type": "tech"
+      }
+    ]
   }
 ]
