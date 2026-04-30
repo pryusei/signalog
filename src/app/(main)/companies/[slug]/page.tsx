@@ -20,8 +20,26 @@ type FeedType = 'tech' | 'press' | 'all'
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params
   const [company] = await db.select().from(companies).where(eq(companies.slug, slug)).limit(1)
-  if (!company) return { title: '企業が見つかりません | Signalog' }
-  return { title: `${company.name} | Signalog` }
+  if (!company) return { title: '企業が見つかりません' }
+
+  const description = company.description
+    ? `${company.description} — テックブログとプレスリリースをまとめてチェック`
+    : `${company.name}のテックブログとプレスリリースをチェックしよう`
+
+  return {
+    title: company.name,
+    description,
+    openGraph: {
+      title: `${company.name} | Signalog`,
+      description,
+      images: company.logoUrl ? [{ url: company.logoUrl }] : [],
+    },
+    twitter: {
+      card: 'summary' as const,
+      title: `${company.name} | Signalog`,
+      description,
+    },
+  }
 }
 
 export default async function CompanyPage({ params, searchParams }: PageProps) {
