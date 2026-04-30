@@ -71,10 +71,10 @@ export default async function DiscoverPage({ searchParams }: PageProps) {
                   imgClassName="h-11 w-11 shrink-0 rounded-xl object-contain"
                   tileClassName="bg-sg-accent-soft text-sg-accent-deep flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-sm font-bold"
                 />
-                <div className="min-w-0 flex-1">
+                <div className="min-w-0 flex-1 overflow-hidden">
                   <Link
                     href={`/companies/${company.slug}`}
-                    className="text-sg-ink hover:text-sg-accent-deep truncate font-semibold"
+                    className="text-sg-ink hover:text-sg-accent-deep block truncate font-semibold"
                   >
                     {company.name}
                   </Link>
