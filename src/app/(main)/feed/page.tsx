@@ -9,7 +9,14 @@ import { articles, companies, follows } from '../../../../db/schema'
 import type { ArticleWithCompany } from '@/app/api/feed/route'
 import { FeedInfiniteScroll } from './FeedInfiniteScroll'
 
-export const metadata = { title: 'フィード | Signalog' }
+export const metadata = {
+  title: 'フィード',
+  description: 'フォロー中の企業の最新テックブログとプレスリリースをチェックしよう',
+  openGraph: {
+    title: 'フィード | Signalog',
+    description: 'フォロー中の企業の最新テックブログとプレスリリースをチェックしよう',
+  },
+}
 
 const LIMIT = 20
 

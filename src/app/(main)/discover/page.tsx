@@ -13,7 +13,14 @@ interface PageProps {
   searchParams: Promise<{ q?: string }>
 }
 
-export const metadata = { title: '企業を探す | Signalog' }
+export const metadata = {
+  title: '企業を探す',
+  description: '気になる企業をフォローして、テックブログとプレスリリースをまとめてチェックしよう',
+  openGraph: {
+    title: '企業を探す | Signalog',
+    description: '気になる企業をフォローして、テックブログとプレスリリースをまとめてチェックしよう',
+  },
+}
 
 export default async function DiscoverPage({ searchParams }: PageProps) {
   const { q } = await searchParams
@@ -63,7 +70,7 @@ export default async function DiscoverPage({ searchParams }: PageProps) {
             {companyList.map((company) => (
               <li
                 key={company.id}
-                className="border-sg-line bg-sg-surface flex items-center gap-3 rounded-2xl border p-4 transition-shadow hover:shadow-sm"
+                className="border-sg-line bg-sg-surface flex min-w-0 items-center gap-3 rounded-2xl border p-4 transition-shadow hover:shadow-sm"
               >
                 <CompanyLogo
                   name={company.name}

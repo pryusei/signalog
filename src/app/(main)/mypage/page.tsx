@@ -7,7 +7,11 @@ import { db } from '@/lib/db/server'
 import { companies, follows } from '../../../../db/schema'
 import { FollowedCompaniesList } from './FollowedCompaniesList'
 
-export const metadata = { title: 'マイページ | Signalog' }
+export const metadata = {
+  title: 'マイページ',
+  description: 'フォロー中の企業を管理しよう',
+  robots: { index: false },
+}
 
 export default async function MyPage() {
   const session = await auth()
