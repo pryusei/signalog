@@ -6,7 +6,9 @@ import { companies } from '../../db/schema'
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://signalog.vercel.app'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const companyList = await db.select({ slug: companies.slug, updatedAt: companies.updatedAt }).from(companies)
+  const companyList = await db
+    .select({ slug: companies.slug, updatedAt: companies.updatedAt })
+    .from(companies)
 
   const staticPages: MetadataRoute.Sitemap = [
     {
