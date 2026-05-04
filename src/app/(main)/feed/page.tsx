@@ -5,7 +5,7 @@ import { auth } from '@/lib/auth'
 import { encodeCursor } from '@/lib/cursor'
 import { db } from '@/lib/db/server'
 import { and, desc, eq, inArray } from 'drizzle-orm'
-import { articles, companies, follows } from '../../../../db/schema'
+import { articles, bookmarks, companies, follows } from '../../../../db/schema'
 import type { ArticleWithCompany } from '@/app/api/feed/route'
 import { FeedInfiniteScroll } from './FeedInfiniteScroll'
 
@@ -63,6 +63,7 @@ export default async function FeedPage({ searchParams }: PageProps) {
             publishedAt: articles.publishedAt,
             feedType: articles.feedType,
             aiSummary: articles.aiSummary,
+            bookmarkCount: articles.bookmarkCount,
             companyId: companies.id,
             companyName: companies.name,
             companySlug: companies.slug,
@@ -75,7 +76,26 @@ export default async function FeedPage({ searchParams }: PageProps) {
           .limit(LIMIT + 1)
 
   const hasMore = rows.length > LIMIT
-  const initialArticles: ArticleWithCompany[] = rows.slice(0, LIMIT).map((row) => ({
+  const pageRows = rows.slice(0, LIMIT)
+
+  let bookmarkedIds = new Set<string>()
+  if (userId && pageRows.length > 0) {
+    const bRows = await db
+      .select({ articleId: bookmarks.articleId })
+      .from(bookmarks)
+      .where(
+        and(
+          eq(bookmarks.userId, userId),
+          inArray(
+            bookmarks.articleId,
+            pageRows.map((r) => r.id),
+          ),
+        ),
+      )
+    bookmarkedIds = new Set(bRows.map((r) => r.articleId))
+  }
+
+  const initialArticles: ArticleWithCompany[] = pageRows.map((row) => ({
     id: row.id,
     title: row.title,
     sourceUrl: row.sourceUrl,
@@ -83,6 +103,8 @@ export default async function FeedPage({ searchParams }: PageProps) {
     publishedAt: row.publishedAt.toISOString(),
     feedType: row.feedType,
     aiSummary: row.aiSummary,
+    bookmarkCount: row.bookmarkCount,
+    isBookmarked: bookmarkedIds.has(row.id),
     company: {
       id: row.companyId,
       name: row.companyName,

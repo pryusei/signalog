@@ -4,7 +4,7 @@ import { type NextRequest } from 'next/server'
 import { auth } from '@/lib/auth'
 import { decodeCursor, encodeCursor } from '@/lib/cursor'
 import { db } from '@/lib/db/server'
-import { articles, companies, follows } from '../../../../db/schema'
+import { articles, bookmarks, companies, follows } from '../../../../db/schema'
 
 const DEFAULT_LIMIT = 20
 const MAX_LIMIT = 50
@@ -17,6 +17,8 @@ export interface ArticleWithCompany {
   publishedAt: string
   feedType: 'tech' | 'press'
   aiSummary: string | null
+  bookmarkCount: number
+  isBookmarked: boolean
   company: {
     id: string
     name: string
@@ -81,6 +83,7 @@ export async function GET(request: NextRequest) {
       publishedAt: articles.publishedAt,
       feedType: articles.feedType,
       aiSummary: articles.aiSummary,
+      bookmarkCount: articles.bookmarkCount,
       companyId: companies.id,
       companyName: companies.name,
       companySlug: companies.slug,
@@ -103,6 +106,17 @@ export async function GET(request: NextRequest) {
         })
       : null
 
+  // ログイン中のユーザーのブックマーク状態を一括取得
+  let bookmarkedIds = new Set<string>()
+  if (userId && data.length > 0) {
+    const articleIds = data.map((r) => r.id)
+    const bRows = await db
+      .select({ articleId: bookmarks.articleId })
+      .from(bookmarks)
+      .where(and(eq(bookmarks.userId, userId), inArray(bookmarks.articleId, articleIds)))
+    bookmarkedIds = new Set(bRows.map((r) => r.articleId))
+  }
+
   const result: ArticleWithCompany[] = data.map((row) => ({
     id: row.id,
     title: row.title,
@@ -111,6 +125,8 @@ export async function GET(request: NextRequest) {
     publishedAt: row.publishedAt.toISOString(),
     feedType: row.feedType,
     aiSummary: row.aiSummary,
+    bookmarkCount: row.bookmarkCount,
+    isBookmarked: bookmarkedIds.has(row.id),
     company: {
       id: row.companyId,
       name: row.companyName,

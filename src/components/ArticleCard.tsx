@@ -3,6 +3,7 @@
 import Link from 'next/link'
 
 import { isSafeUrl } from '@/lib/safeUrl'
+import { BookmarkButton } from './BookmarkButton'
 import type { ArticleWithCompany } from '@/app/api/feed/route'
 
 function formatRelative(iso: string) {
@@ -79,6 +80,13 @@ export function ArticleCard({ article }: { article: ArticleWithCompany }) {
             {article.aiSummary}
           </p>
         )}
+        <div className="mt-1 flex justify-end">
+          <BookmarkButton
+            articleId={article.id}
+            initialIsBookmarked={article.isBookmarked}
+            initialCount={article.bookmarkCount}
+          />
+        </div>
       </div>
 
       {isSafeUrl(article.ogpImageUrl) && (

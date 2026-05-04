@@ -1,13 +1,13 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { desc, eq, and } from 'drizzle-orm'
+import { desc, eq, and, inArray } from 'drizzle-orm'
 
 import { CompanyLogo } from '@/components/CompanyLogo'
 import { FollowButton } from '@/components/FollowButton'
 import { ArticleCard } from '@/components/ArticleCard'
 import { auth } from '@/lib/auth'
 import { db } from '@/lib/db/server'
-import { articles, companies, follows } from '../../../../../db/schema'
+import { articles, bookmarks, companies, follows } from '../../../../../db/schema'
 import type { ArticleWithCompany } from '@/app/api/feed/route'
 
 interface PageProps {
@@ -63,6 +63,7 @@ export default async function CompanyPage({ params, searchParams }: PageProps) {
         publishedAt: articles.publishedAt,
         feedType: articles.feedType,
         aiSummary: articles.aiSummary,
+        bookmarkCount: articles.bookmarkCount,
       })
       .from(articles)
       .where(
@@ -82,6 +83,23 @@ export default async function CompanyPage({ params, searchParams }: PageProps) {
 
   const isFollowed = followedRows.length > 0
 
+  let bookmarkedIds = new Set<string>()
+  if (userId && articleRows.length > 0) {
+    const bRows = await db
+      .select({ articleId: bookmarks.articleId })
+      .from(bookmarks)
+      .where(
+        and(
+          eq(bookmarks.userId, userId),
+          inArray(
+            bookmarks.articleId,
+            articleRows.map((a) => a.id),
+          ),
+        ),
+      )
+    bookmarkedIds = new Set(bRows.map((r) => r.articleId))
+  }
+
   const companyArticles: ArticleWithCompany[] = articleRows.map((a) => ({
     id: a.id,
     title: a.title,
@@ -90,6 +108,8 @@ export default async function CompanyPage({ params, searchParams }: PageProps) {
     publishedAt: a.publishedAt.toISOString(),
     feedType: a.feedType,
     aiSummary: a.aiSummary,
+    bookmarkCount: a.bookmarkCount,
+    isBookmarked: bookmarkedIds.has(a.id),
     company: {
       id: company.id,
       name: company.name,
