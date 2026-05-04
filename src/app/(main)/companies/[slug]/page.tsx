@@ -62,6 +62,7 @@ export default async function CompanyPage({ params, searchParams }: PageProps) {
         ogpImageUrl: articles.ogpImageUrl,
         publishedAt: articles.publishedAt,
         feedType: articles.feedType,
+        aiSummary: articles.aiSummary,
       })
       .from(articles)
       .where(
@@ -88,6 +89,7 @@ export default async function CompanyPage({ params, searchParams }: PageProps) {
     ogpImageUrl: a.ogpImageUrl,
     publishedAt: a.publishedAt.toISOString(),
     feedType: a.feedType,
+    aiSummary: a.aiSummary,
     company: {
       id: company.id,
       name: company.name,

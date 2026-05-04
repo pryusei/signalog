@@ -62,6 +62,7 @@ export default async function FeedPage({ searchParams }: PageProps) {
             ogpImageUrl: articles.ogpImageUrl,
             publishedAt: articles.publishedAt,
             feedType: articles.feedType,
+            aiSummary: articles.aiSummary,
             companyId: companies.id,
             companyName: companies.name,
             companySlug: companies.slug,
@@ -81,6 +82,7 @@ export default async function FeedPage({ searchParams }: PageProps) {
     ogpImageUrl: row.ogpImageUrl,
     publishedAt: row.publishedAt.toISOString(),
     feedType: row.feedType,
+    aiSummary: row.aiSummary,
     company: {
       id: row.companyId,
       name: row.companyName,
