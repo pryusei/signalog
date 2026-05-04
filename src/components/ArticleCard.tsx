@@ -74,6 +74,11 @@ export function ArticleCard({ article }: { article: ArticleWithCompany }) {
         <p className="text-sg-ink group-hover:text-sg-accent-deep mb-1 line-clamp-2 text-[15px] leading-snug font-semibold">
           {article.title}
         </p>
+        {article.aiSummary && (
+          <p className="text-sg-ink-soft line-clamp-2 text-xs leading-relaxed">
+            {article.aiSummary}
+          </p>
+        )}
       </div>
 
       {isSafeUrl(article.ogpImageUrl) && (
