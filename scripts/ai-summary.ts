@@ -5,14 +5,14 @@
  */
 
 import Anthropic from '@anthropic-ai/sdk'
-import { and, asc, gt, isNull } from 'drizzle-orm'
+import { and, desc, gt, isNull } from 'drizzle-orm'
 import { drizzle } from 'drizzle-orm/neon-http'
 import { neon } from '@neondatabase/serverless'
 import { eq } from 'drizzle-orm'
 
 import * as schema from '../db/schema'
 
-const BATCH_SIZE = 20
+const BATCH_SIZE = 50
 const MAX_TITLE_CHARS = 200
 // 7日以内の記事のみ対象
 const RECENCY_DAYS = 7
@@ -43,7 +43,7 @@ async function main() {
     })
     .from(schema.articles)
     .where(and(isNull(schema.articles.aiSummary), gt(schema.articles.publishedAt, since)))
-    .orderBy(asc(schema.articles.publishedAt))
+    .orderBy(desc(schema.articles.publishedAt))
     .limit(BATCH_SIZE)
 
   if (rows.length === 0) {
