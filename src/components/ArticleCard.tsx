@@ -76,9 +76,17 @@ export function ArticleCard({ article }: { article: ArticleWithCompany }) {
           {article.title}
         </p>
         {article.aiSummary && (
-          <p className="text-sg-ink-soft line-clamp-2 text-xs leading-relaxed">
-            {article.aiSummary}
-          </p>
+          <div className="bg-sg-accent-soft/40 mt-2 rounded-lg px-3 py-2">
+            <div className="text-sg-accent-deep mb-1 flex items-center gap-1 text-[10px] font-bold tracking-wide uppercase">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61z" />
+              </svg>
+              AI 要約
+            </div>
+            <p className="text-sg-ink-soft line-clamp-2 text-xs leading-relaxed">
+              {article.aiSummary}
+            </p>
+          </div>
         )}
         <div className="mt-1 flex justify-end">
           <BookmarkButton
