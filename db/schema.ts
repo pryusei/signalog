@@ -134,12 +134,35 @@ export const articles = pgTable(
     ogpImageUrl: text('ogp_image_url'),
     publishedAt: timestamp('published_at', { withTimezone: true }).notNull(),
     fetchedAt: timestamp('fetched_at', { withTimezone: true }).notNull().defaultNow(),
-    aiSummary: text('ai_summary'), // Phase 2 用に予約
-    aiSummaryGeneratedAt: timestamp('ai_summary_generated_at', { withTimezone: true }), // Phase 2 用に予約
+    bookmarkCount: integer('bookmark_count').notNull().default(0),
+    aiSummary: text('ai_summary'),
+    aiSummaryGeneratedAt: timestamp('ai_summary_generated_at', { withTimezone: true }),
   },
   (table) => ({
     companyUrlIdx: uniqueIndex('articles_company_url_idx').on(table.companyId, table.normalizedUrl),
     pubIdIdx: index('articles_pub_id_idx').on(table.publishedAt, table.id),
+    bookmarkCountIdx: index('articles_bookmark_count_idx').on(table.bookmarkCount),
+  }),
+)
+
+// ---------------------------------------------------------------------------
+// ブックマーク
+// ---------------------------------------------------------------------------
+
+export const bookmarks = pgTable(
+  'bookmarks',
+  {
+    userId: uuid('user_id')
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
+    articleId: uuid('article_id')
+      .notNull()
+      .references(() => articles.id, { onDelete: 'cascade' }),
+    createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
+  },
+  (table) => ({
+    pk: primaryKey({ columns: [table.userId, table.articleId] }),
+    articleIdx: index('bookmarks_article_idx').on(table.articleId),
   }),
 )
 
@@ -151,6 +174,7 @@ export const usersRelations = relations(users, ({ many }) => ({
   accounts: many(accounts),
   sessions: many(sessions),
   follows: many(follows),
+  bookmarks: many(bookmarks),
 }))
 
 export const accountsRelations = relations(accounts, ({ one }) => ({
@@ -176,6 +200,12 @@ export const followsRelations = relations(follows, ({ one }) => ({
   company: one(companies, { fields: [follows.companyId], references: [companies.id] }),
 }))
 
-export const articlesRelations = relations(articles, ({ one }) => ({
+export const articlesRelations = relations(articles, ({ one, many }) => ({
   company: one(companies, { fields: [articles.companyId], references: [companies.id] }),
+  bookmarks: many(bookmarks),
+}))
+
+export const bookmarksRelations = relations(bookmarks, ({ one }) => ({
+  user: one(users, { fields: [bookmarks.userId], references: [users.id] }),
+  article: one(articles, { fields: [bookmarks.articleId], references: [articles.id] }),
 }))

@@ -28,6 +28,25 @@ const items = [
     ),
   },
   {
+    href: '/popular',
+    label: '人気',
+    icon: (
+      <svg
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+        <polyline points="17 6 23 6 23 12" />
+      </svg>
+    ),
+  },
+  {
     href: '/discover',
     label: '企業を探す',
     icon: (
@@ -43,6 +62,24 @@ const items = [
       >
         <circle cx="11" cy="11" r="8" />
         <line x1="21" y1="21" x2="16.65" y2="16.65" />
+      </svg>
+    ),
+  },
+  {
+    href: '/bookmarks',
+    label: 'ブックマーク',
+    icon: (
+      <svg
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
       </svg>
     ),
   },

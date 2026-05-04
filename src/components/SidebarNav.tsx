@@ -5,7 +5,9 @@ import { usePathname } from 'next/navigation'
 
 const items = [
   { href: '/feed', label: 'フィード' },
+  { href: '/popular', label: '人気記事' },
   { href: '/discover', label: '企業を探す' },
+  { href: '/bookmarks', label: 'ブックマーク' },
   { href: '/mypage', label: 'マイページ' },
 ]
 
