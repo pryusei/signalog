@@ -4,16 +4,17 @@ import { SidebarNav } from './SidebarNav'
 
 interface Props {
   session: Session | null
+  unreadCount?: number
 }
 
-export function Sidebar({ session }: Props) {
+export function Sidebar({ session, unreadCount = 0 }: Props) {
   const user = session?.user
   return (
     <aside className="border-sg-line-soft bg-sg-surface hidden w-[200px] shrink-0 flex-col border-r md:flex">
       <div className="text-sg-ink-faint px-4 pt-4 pb-2 text-[11px] font-semibold tracking-wider uppercase">
         メニュー
       </div>
-      <SidebarNav />
+      <SidebarNav unreadCount={unreadCount} />
       <div className="flex-1" />
       {user && (
         <div className="border-sg-line-soft border-t px-4 py-3">

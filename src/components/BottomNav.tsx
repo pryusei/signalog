@@ -3,6 +3,10 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
+interface Props {
+  unreadCount?: number
+}
+
 const items = [
   {
     href: '/feed',
@@ -67,21 +71,29 @@ const items = [
   },
 ]
 
-export function BottomNav() {
+export function BottomNav({ unreadCount = 0 }: Props) {
   const pathname = usePathname()
   return (
     <nav className="border-sg-line-soft bg-sg-surface fixed right-0 bottom-0 left-0 z-50 flex border-t md:hidden">
       {items.map(({ href, label, icon }) => {
         const isActive = pathname === href || pathname.startsWith(href + '/')
+        const showBadge = href === '/feed' && unreadCount > 0 && !isActive
         return (
           <Link
             key={href}
             href={href}
-            className={`flex flex-1 flex-col items-center gap-0.5 py-2 text-[10px] font-medium transition-colors ${
+            className={`relative flex flex-1 flex-col items-center gap-0.5 py-2 text-[10px] font-medium transition-colors ${
               isActive ? 'text-sg-accent-deep' : 'text-sg-ink-faint'
             }`}
           >
-            {icon}
+            <span className="relative">
+              {icon}
+              {showBadge && (
+                <span className="bg-sg-accent absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full text-[9px] font-bold text-white">
+                  {unreadCount > 9 ? '9+' : unreadCount}
+                </span>
+              )}
+            </span>
             {label}
           </Link>
         )

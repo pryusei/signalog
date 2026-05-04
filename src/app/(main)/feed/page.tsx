@@ -8,6 +8,7 @@ import { and, desc, eq, inArray } from 'drizzle-orm'
 import { articles, companies, follows } from '../../../../db/schema'
 import type { ArticleWithCompany } from '@/app/api/feed/route'
 import { FeedInfiniteScroll } from './FeedInfiniteScroll'
+import { MarkAsRead } from './MarkAsRead'
 
 export const metadata = {
   title: 'フィード',
@@ -108,6 +109,7 @@ export default async function FeedPage({ searchParams }: PageProps) {
 
   return (
     <main className="mx-auto max-w-2xl px-4 py-6 md:px-6 md:py-8">
+      <MarkAsRead />
       <h1 className="text-sg-ink mb-1 text-xl font-black md:text-2xl">フィード</h1>
       {userId && (
         <p className="text-sg-ink-soft mb-5 text-sm">
