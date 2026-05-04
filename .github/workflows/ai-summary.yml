@@ -8,7 +8,6 @@ on:
 
 jobs:
   summarize:
-    if: ${{ secrets.DATABASE_URL != '' && secrets.ANTHROPIC_API_KEY != '' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
