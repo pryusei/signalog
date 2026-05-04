@@ -82,9 +82,23 @@ db/                    ← Drizzle スキーマ・マイグレーション・シ
 6. コミット (`<type>(<scope>): <description>` 形式)
 7. PR 作成 (`gh pr create`)
 
+## Claude へのルール (必ず守ること)
+
+**コードを変更したら必ず PR を出す。どんな小さな修正でも例外なし。**
+
+手順:
+1. `git checkout main && git pull`
+2. `git checkout -b <branch-name>`
+3. 実装・修正
+4. `git push -u origin <branch-name>`
+5. `gh pr create`
+
+hotfix・バグ修正・スタイル変更・ワークフロー修正も含め、すべて PR 経由でマージする。
+main への直接 push は絶対禁止。
+
 ## 禁止事項
 
-- main ブランチへの直接 push
+- main ブランチへの直接 push (PR なしのコミット・プッシュを含む)
 - 記事本文の DB 保存
 - スクレイピング (RSS 以外の方法での記事取得)
 - RLS への依存 (Phase 1 はアプリ層認可)
