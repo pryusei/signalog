@@ -1,25 +1,39 @@
 'use client'
 
 import { useRouter, useSearchParams } from 'next/navigation'
-import { useCallback, useTransition } from 'react'
+import { useCallback, useEffect, useRef, useTransition } from 'react'
+
+const DEBOUNCE_MS = 300
 
 export function CompanySearch() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const [isPending, startTransition] = useTransition()
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current)
+    }
+  }, [])
 
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const q = e.target.value.trim()
-      const params = new URLSearchParams(searchParams.toString())
-      if (q) {
-        params.set('q', q)
-      } else {
-        params.delete('q')
-      }
-      startTransition(() => {
-        router.push(`/discover?${params.toString()}`)
-      })
+      if (timerRef.current) clearTimeout(timerRef.current)
+      timerRef.current = setTimeout(() => {
+        const params = new URLSearchParams(searchParams.toString())
+        if (q) {
+          params.set('q', q)
+        } else {
+          params.delete('q')
+        }
+        const qs = params.toString()
+        startTransition(() => {
+          // push だと1文字ごとに履歴が積まれて戻るボタンが壊れるため replace
+          router.replace(qs ? `/discover?${qs}` : '/discover')
+        })
+      }, DEBOUNCE_MS)
     },
     [router, searchParams],
   )

@@ -6,6 +6,7 @@ import { CompanyLogo } from '@/components/CompanyLogo'
 import { FollowButton } from '@/components/FollowButton'
 import { auth } from '@/lib/auth'
 import { db } from '@/lib/db/server'
+import { escapeLike } from '@/lib/escapeLike'
 import { companies, follows } from '../../../../db/schema'
 import { CompanySearch } from './CompanySearch'
 
@@ -35,7 +36,10 @@ export default async function DiscoverPage({ searchParams }: PageProps) {
       .from(companies)
       .where(
         query
-          ? or(ilike(companies.name, `%${query}%`), ilike(companies.slug, `%${query}%`))
+          ? or(
+              ilike(companies.name, `%${escapeLike(query)}%`),
+              ilike(companies.slug, `%${escapeLike(query)}%`),
+            )
           : undefined,
       )
       .orderBy(companies.name)

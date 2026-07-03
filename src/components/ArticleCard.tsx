@@ -42,13 +42,10 @@ function LogoTile({ name, logoUrl }: { name: string; logoUrl: string | null }) {
 
 export function ArticleCard({ article }: { article: ArticleWithCompany }) {
   const safeSourceUrl = isSafeUrl(article.sourceUrl) ? article.sourceUrl : '#'
+  // <a> の入れ子は不正な HTML になるため、記事リンクは after 疑似要素で
+  // カード全体に広げ、企業リンクは z-10 で前面に重ねる
   return (
-    <a
-      href={safeSourceUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group border-sg-line bg-sg-surface hover:border-sg-accent-soft flex gap-4 rounded-2xl border p-4 transition-all hover:shadow-sm"
-    >
+    <div className="group border-sg-line bg-sg-surface hover:border-sg-accent-soft relative flex gap-4 rounded-2xl border p-4 transition-all hover:shadow-sm">
       <LogoTile name={article.company.name} logoUrl={article.company.logoUrl} />
 
       <div className="min-w-0 flex-1">
@@ -64,17 +61,21 @@ export function ArticleCard({ article }: { article: ArticleWithCompany }) {
           </span>
           <Link
             href={`/companies/${article.company.slug}`}
-            className="text-sg-ink-soft hover:text-sg-accent-deep font-medium"
-            onClick={(e) => e.stopPropagation()}
+            className="text-sg-ink-soft hover:text-sg-accent-deep relative z-10 font-medium"
           >
             {article.company.name}
           </Link>
           <span className="text-sg-ink-faint">· {formatRelative(article.publishedAt)}</span>
         </div>
 
-        <p className="text-sg-ink group-hover:text-sg-accent-deep mb-1 line-clamp-2 text-[15px] leading-snug font-semibold">
+        <a
+          href={safeSourceUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sg-ink group-hover:text-sg-accent-deep mb-1 line-clamp-2 text-[15px] leading-snug font-semibold after:absolute after:inset-0"
+        >
           {article.title}
-        </p>
+        </a>
         {article.aiSummary && (
           <div className="bg-sg-accent-soft/40 mt-2 rounded-lg px-3 py-2">
             <div className="text-sg-accent-deep mb-1 flex items-center gap-1 text-[10px] font-bold tracking-wide uppercase">
@@ -83,12 +84,10 @@ export function ArticleCard({ article }: { article: ArticleWithCompany }) {
               </svg>
               AI 要約
             </div>
-            <p className="text-sg-ink-soft text-xs leading-relaxed">
-              {article.aiSummary}
-            </p>
+            <p className="text-sg-ink-soft text-xs leading-relaxed">{article.aiSummary}</p>
           </div>
         )}
-        <div className="mt-1 flex justify-end">
+        <div className="relative z-10 mt-1 flex justify-end">
           <BookmarkButton
             articleId={article.id}
             initialIsBookmarked={article.isBookmarked}
@@ -112,6 +111,6 @@ export function ArticleCard({ article }: { article: ArticleWithCompany }) {
           />
         </div>
       )}
-    </a>
+    </div>
   )
 }

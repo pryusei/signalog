@@ -1,4 +1,4 @@
-import { eq, sql } from 'drizzle-orm'
+import { and, eq, inArray, sql } from 'drizzle-orm'
 import type { InferSelectModel } from 'drizzle-orm'
 import { drizzle } from 'drizzle-orm/neon-http'
 import { neon } from '@neondatabase/serverless'
@@ -20,19 +20,40 @@ type Db = ReturnType<typeof createDb>
 
 export async function storeArticles(db: Db, feed: CompanyFeed, items: FeedItem[]): Promise<number> {
   const validItems = items.flatMap((item) => {
+    // URL か pubDate が不正な記事はスキップし、フィード全体は失敗させない
+    const publishedAt = new Date(item.pubDate)
+    if (Number.isNaN(publishedAt.getTime())) return []
     try {
-      return [{ item, normalized: normalizeUrl(item.link) }]
+      return [{ item, normalized: normalizeUrl(item.link), publishedAt }]
     } catch {
       return []
     }
   })
+  if (validItems.length === 0) return 0
+
+  // 既存記事を除外してから OGP を取得する (毎クロールでの再取得を避ける)
+  const existing = await db
+    .select({ normalizedUrl: schema.articles.normalizedUrl })
+    .from(schema.articles)
+    .where(
+      and(
+        eq(schema.articles.companyId, feed.companyId),
+        inArray(
+          schema.articles.normalizedUrl,
+          validItems.map((v) => v.normalized),
+        ),
+      ),
+    )
+  const existingUrls = new Set(existing.map((e) => e.normalizedUrl))
+  const newItems = validItems.filter((v) => !existingUrls.has(v.normalized))
+  if (newItems.length === 0) return 0
 
   // OGP 画像を並列取得
-  const ogImages = await Promise.all(validItems.map(({ item }) => fetchOgImage(item.link)))
+  const ogImages = await Promise.all(newItems.map(({ item }) => fetchOgImage(item.link)))
 
   let newCount = 0
-  for (let i = 0; i < validItems.length; i++) {
-    const { item, normalized } = validItems[i]
+  for (let i = 0; i < newItems.length; i++) {
+    const { item, normalized, publishedAt } = newItems[i]
     const result = await db
       .insert(schema.articles)
       .values({
@@ -42,7 +63,7 @@ export async function storeArticles(db: Db, feed: CompanyFeed, items: FeedItem[]
         sourceUrl: item.link,
         normalizedUrl: normalized,
         ogpImageUrl: ogImages[i],
-        publishedAt: new Date(item.pubDate),
+        publishedAt,
       })
       .onConflictDoNothing()
       .returning({ id: schema.articles.id })

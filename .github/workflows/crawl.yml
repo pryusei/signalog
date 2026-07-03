@@ -14,8 +14,10 @@ jobs:
     name: Crawl RSS Feeds
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    # DATABASE_URL が未登録の場合はジョブをスキップ
-    if: ${{ secrets.DATABASE_URL != '' }}
+    # secrets コンテキストはジョブレベル if では参照できない (ワークフロー全体が
+    # 無効になる) ため、env 経由でステップレベル if により判定する
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
     steps:
       - name: Checkout
@@ -36,6 +38,9 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Crawl
+        if: env.DATABASE_URL != ''
         run: pnpm crawl
-        env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
+      - name: Notice when skipped
+        if: env.DATABASE_URL == ''
+        run: echo "::warning::DATABASE_URL が未設定のためクロールをスキップしました"
