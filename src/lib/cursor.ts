@@ -17,7 +17,8 @@ export function decodeCursor(encoded: string): Cursor | null {
       'publishedAt' in parsed &&
       'id' in parsed &&
       typeof (parsed as Cursor).publishedAt === 'string' &&
-      typeof (parsed as Cursor).id === 'string'
+      typeof (parsed as Cursor).id === 'string' &&
+      !Number.isNaN(Date.parse((parsed as Cursor).publishedAt))
     ) {
       return parsed as Cursor
     }

@@ -8,6 +8,7 @@ import { articles, bookmarks, companies, follows } from '../../../../db/schema'
 
 const DEFAULT_LIMIT = 20
 const MAX_LIMIT = 50
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
 
 export interface ArticleWithCompany {
   id: string
@@ -34,8 +35,20 @@ export async function GET(request: NextRequest) {
   const type = searchParams.get('type') as 'tech' | 'press' | null
   const following = searchParams.get('following') === 'true'
 
-  const limit = Math.min(Number(limitParam) || DEFAULT_LIMIT, MAX_LIMIT)
+  const parsedLimit = Number(limitParam)
+  const limit =
+    Number.isInteger(parsedLimit) && parsedLimit >= 1
+      ? Math.min(parsedLimit, MAX_LIMIT)
+      : DEFAULT_LIMIT
+
   const cursor = cursorParam ? decodeCursor(cursorParam) : null
+  // カーソル id は uuid カラムと比較するため、形式不正はここで弾く (DB エラー回避)
+  if (cursorParam && (!cursor || !UUID_RE.test(cursor.id))) {
+    return Response.json(
+      { error: { code: 'BAD_REQUEST', message: '無効なカーソルです' } },
+      { status: 400 },
+    )
+  }
 
   const session = await auth()
   const userId = session?.user?.id ?? null

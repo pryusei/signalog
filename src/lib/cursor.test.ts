@@ -19,4 +19,11 @@ describe('encodeCursor / decodeCursor', () => {
   it('空文字は null を返す', () => {
     expect(decodeCursor('')).toBeNull()
   })
+
+  it('publishedAt が日付として不正な場合は null を返す', () => {
+    const bad = Buffer.from(JSON.stringify({ publishedAt: 'not-a-date', id: 'abc-123' })).toString(
+      'base64url',
+    )
+    expect(decodeCursor(bad)).toBeNull()
+  })
 })
