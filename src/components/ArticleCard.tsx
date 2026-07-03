@@ -84,9 +84,7 @@ export function ArticleCard({ article }: { article: ArticleWithCompany }) {
               </svg>
               AI 要約
             </div>
-            <p className="text-sg-ink-soft text-xs leading-relaxed">
-              {article.aiSummary}
-            </p>
+            <p className="text-sg-ink-soft text-xs leading-relaxed">{article.aiSummary}</p>
           </div>
         )}
         <div className="relative z-10 mt-1 flex justify-end">

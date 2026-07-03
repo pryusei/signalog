@@ -87,6 +87,7 @@ db/                    ← Drizzle スキーマ・マイグレーション・シ
 **コードを変更したら必ず PR を出す。どんな小さな修正でも例外なし。**
 
 手順:
+
 1. `git checkout main && git pull`
 2. `git checkout -b <branch-name>`
 3. 実装・修正
