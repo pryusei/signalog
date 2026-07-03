@@ -8,6 +8,14 @@ import { companies, follows } from '../../../../db/schema'
 
 const bodySchema = z.object({ companyId: z.string().uuid() })
 
+async function parseBody(request: NextRequest): Promise<unknown> {
+  try {
+    return await request.json()
+  } catch {
+    return null
+  }
+}
+
 export async function GET() {
   const session = await auth()
   if (!session) {
@@ -34,7 +42,7 @@ export async function POST(request: NextRequest) {
     )
   }
 
-  const parsed = bodySchema.safeParse(await request.json())
+  const parsed = bodySchema.safeParse(await parseBody(request))
   if (!parsed.success) {
     return Response.json(
       { error: { code: 'BAD_REQUEST', message: '無効なリクエスト' } },
@@ -71,7 +79,7 @@ export async function DELETE(request: NextRequest) {
     )
   }
 
-  const parsed = bodySchema.safeParse(await request.json())
+  const parsed = bodySchema.safeParse(await parseBody(request))
   if (!parsed.success) {
     return Response.json(
       { error: { code: 'BAD_REQUEST', message: '無効なリクエスト' } },
